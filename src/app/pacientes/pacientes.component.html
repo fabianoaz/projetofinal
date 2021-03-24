@@ -1,0 +1,47 @@
+<hr />
+<div>
+    <form class='formulario'>
+        <div>
+            <label for="">Nome</label>
+            <input class='form-control' name='nome' type="text" #nome>
+        </div>
+        <div>
+            <label for="">Idade</label>
+            <input class='form-control' name='idade' type="number" #idade>
+        </div>
+        <div>
+            <label for="">Condição</label>
+            <input class='form-control' name='condicao' type="text" #condicao>
+        </div>
+        <div>
+            <label for="">Condição Tipo</label>
+            <input class='form-control' name='condicao_tipo' type="text" #condicao_tipo>
+        </div>
+    </form>
+    <hr />
+    <div clas='botoes'>
+        <button
+            (click)="addPaciente(nome.value,idade.value,condicao.value,condicao_tipo.value); nome.value='';idade.value='0';condicao.value='';condicao_tipo.value=''">Incluir</button>
+    </div>
+    <hr />
+    <div class='grade'>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Condição</th>
+                <th>Condição Tipo</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of listapacientes; let i=index">
+                    <td>{{paciente.id}}</td>
+                    <td>{{paciente.nome}}</td>
+                    <td>{{paciente.idade}}</td>
+                    <td>{{paciente.condicao}}</td>
+                    <td>{{paciente.condicao_tipo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

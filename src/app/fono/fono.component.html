@@ -1,0 +1,59 @@
+<hr />
+<div>
+    <label for="pacientes">Paciente</label>
+    <!--
+<select>
+    <option value="">Selecione</option>
+    <option name="pacienteId" #pacienteId value="paciente.id" *ngFor="let paciente of pacientes; let i=index" (onChange)="setPacienteId(paciente.id)">{{paciente.id}} - {{paciente.nome}}</option>
+</select>
+-->
+
+<ul class="" role="">
+    <li role="" *ngFor="let paciente of pacientes; let i=index">
+      <a class="" (click)="selecionaPaciente(paciente.id,paciente.nome)" >{{paciente.id}} - {{paciente.nome}}</a>
+    </li>
+  </ul>
+
+</div>
+<hr />
+<div>
+    <form class='formulario'>
+        <div>
+            <label for="">Paciente</label>
+            <input class='form-control' name='paciente' type="text" >
+        </div>
+        <div>
+            <label for="">Atendimento</label>
+            <input class='form-control' name='atendimento' type="text" #atendimento>
+        </div>
+        <div>
+            <label for="">Orientação</label>
+            <input class='form-control' name='orientacao' type="text" #orientacao>
+        </div>
+    </form>
+    <hr />
+    <div clas='botoes'>
+        <button
+            (click)="addInfo(atendimento.value,orientacao.value); atendimento.value=''; orientacao.value='' ">Incluir
+            informação</button>
+    </div>
+    <hr />
+    <div class='grade'>
+        <table>
+            <thead>
+                <th>Paciente ID</th>
+                <th>Data</th>
+                <th>Atendimento</th>
+                <th>Orientacao</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let info of informacoes; let i=index">
+                    <td>{{info.pacienteId}}</td>
+                    <td>{{info.data | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                    <td>{{info.atendimento}}</td>
+                    <td>{{info.orientacao}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
