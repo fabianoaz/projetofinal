@@ -13,7 +13,7 @@ export class PacientesService {
   pacientes: PacientesClass[] = [];
 
   //private readonly url = 'http://localhost:3000/pacientes';
-  private readonly url = 'http://35.168.241.134:3000/pacientes';
+  private readonly url = 'https://projetofinal2021.herokuapp.com/pacientes';
 
   constructor(private httpClient: HttpClient) { }
 
