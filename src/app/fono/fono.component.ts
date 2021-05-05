@@ -15,20 +15,25 @@ export class FonoComponent implements OnInit {
   informacoes: FonoClass[] = [];
   pacientes: PacientesClass[] = [];
   paciente:PacientesClass = new PacientesClass;
+  selectedPaciente:PacientesClass = new PacientesClass;
   
   pacienteId:string="";
   pacienteNome:string="";
+  pacienteIdade:string="";
 
   constructor(private service: FonoService, private pacientesService: PacientesService) { }
 
   ngOnInit(): void {
     this.info = new FonoClass();
+    this.selectedPaciente = new PacientesClass;
     this.informacoes = this.service.getInfos();
-    this.pacientes = this.pacientesService.getPacientes();
+    this.pacientesService.getPacientes().subscribe(dados => this.pacientes = dados);
+
   }
 
   addInfo(_atendimento: string, _orientacao: string) {
     this.info.pacienteId = this.pacienteId;
+    this.info.pacienteNome = this.pacienteNome;
     this.info.data = new Date;
     this.info.atendimento = _atendimento;
     this.info.orientacao = _orientacao;
@@ -36,10 +41,17 @@ export class FonoComponent implements OnInit {
     this.info = new FonoClass();
   }
 
-  selecionaPaciente(_id:string,_nome:string){
+  selecionaPaciente(_id:string,_nome:string,_idade:string){
     this.pacienteId = _id;
     this.pacienteNome = _nome;
-    alert("ID: " + this.pacienteId + " Nome: " + this.pacienteNome);
+    this.pacienteIdade = _idade;
+    alert("ID: " + this.pacienteId + " Nome: " + this.pacienteNome + " Idade: " + this.pacienteIdade);
+  }
+
+  selecionaPaciente2(){
+    //this.pacienteId = this.selectedPaciente._id;
+
+    alert("ID: " + this.pacienteId + " Nome: " + this.pacienteNome + " Idade: " + this.pacienteIdade);
   }
 
   getNomePacienteSelecionado(){

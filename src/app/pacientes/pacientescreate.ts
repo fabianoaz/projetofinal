@@ -1,6 +1,4 @@
-
-export class PacientesClass{
-    _id:string = "";
+export class PacientesClassCreate{
     nome:string = "";
     idade:string = "";
     diagnostico:string = "";

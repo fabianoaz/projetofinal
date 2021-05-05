@@ -10,18 +10,16 @@
             <input class='form-control' name='idade' type="number" #idade>
         </div>
         <div>
-            <label for="">Condição</label>
-            <input class='form-control' name='condicao' type="text" #condicao>
-        </div>
-        <div>
-            <label for="">Condição Tipo</label>
-            <input class='form-control' name='condicao_tipo' type="text" #condicao_tipo>
+            <label for="">Diagnóstico</label>
+            <input class='form-control' name='diagnostico' type="text" #diagnostico>
         </div>
     </form>
     <hr />
     <div clas='botoes'>
         <button
-            (click)="addPaciente(nome.value,idade.value,condicao.value,condicao_tipo.value); nome.value='';idade.value='0';condicao.value='';condicao_tipo.value=''">Incluir</button>
+            (click)="addPaciente(nome.value,idade.value,diagnostico.value); nome.value='';idade.value='0';diagnostico.value=''">Incluir</button>
+            <button
+            (click)="listarPacientes()">Listar Pacientes</button>
     </div>
     <hr />
     <div class='grade'>
@@ -31,15 +29,13 @@
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Condição</th>
-                <th>Condição Tipo</th>
             </thead>
             <tbody>
                 <tr *ngFor="let paciente of listapacientes; let i=index">
-                    <td>{{paciente.id}}</td>
+                    <td>{{paciente._id}}</td>
                     <td>{{paciente.nome}}</td>
                     <td>{{paciente.idade}}</td>
-                    <td>{{paciente.condicao}}</td>
-                    <td>{{paciente.condicao_tipo}}</td>
+                    <td>{{paciente.diagnostico}}</td>
                 </tr>
             </tbody>
         </table>
