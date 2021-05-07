@@ -16,7 +16,7 @@ export class PacientesComponent implements OnInit {
   constructor(private service: PacientesService) { }
 
   ngOnInit(): void {
-    this.paciente = new PacientesClass;
+    this.paciente = new PacientesClassCreate;
     this.service.getPacientes().subscribe(dados => this.listapacientes = dados);
   }
 

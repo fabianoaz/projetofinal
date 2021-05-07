@@ -45,22 +45,10 @@ export class FonoComponent implements OnInit {
     this.pacienteId = _id;
     this.pacienteNome = _nome;
     this.pacienteIdade = _idade;
-    alert("ID: " + this.pacienteId + " Nome: " + this.pacienteNome + " Idade: " + this.pacienteIdade);
-  }
-
-  selecionaPaciente2(){
-    //this.pacienteId = this.selectedPaciente._id;
-
-    alert("ID: " + this.pacienteId + " Nome: " + this.pacienteNome + " Idade: " + this.pacienteIdade);
   }
 
   getNomePacienteSelecionado(){
     alert("ID: " + this.pacienteId + " Nome: " + this.pacienteNome);
     return "ID: " + this.pacienteId + " Nome: " + this.pacienteNome;
   }
-
-  alertTeste(){
-    alert("Teste de Chamada de Função");
-  }
-
 }

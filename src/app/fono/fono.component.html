@@ -1,21 +1,6 @@
 <hr />
 <div>
     <label for="pacientes">Pacientes</label>
-
-
-    <select formControl="pacienteform" (change)="selecionaPaciente2()">
-        <option value="" disabled selected>Selecione</option>
-        <option name="pacienteId" *ngFor="let paciente of pacientes; let i=index" ngValue="paciente" >{{paciente.nome}}</option>
-    </select>
-    <button (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">TESTE</button>
-    
-
-    <ul class="" role="">
-        <li role="" *ngFor="let paciente of pacientes; let i=index">
-            <a class="" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente._id}} - {{paciente.nome}}</a>
-        </li>
-    </ul>
-
     <form>
         <ul class="" role="">
             <li role="" *ngFor="let paciente of pacientes; let i=index">
@@ -23,20 +8,6 @@
             </li>
         </ul>
     </form>
-
-
-     <!--
-<select name="" id="">
-    <option value="" disabled selected>Selecione</option>
-    <option value="" *ngFor="let paciente of pacientes; let i=index">
-        <ul class="" role="">
-            <li role="" >
-                <a class="" (change)="selecionaPaciente(paciente._id,paciente.nome)">{{paciente._id}} - {{paciente.nome}}</a>
-            </li>
-        </ul>
-    </option>
-</select>
--->
 </div>
 <hr />
 <div>

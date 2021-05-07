@@ -2,13 +2,18 @@
   "name": "projeto-final",
   "version": "0.0.0",
   "scripts": {
+    "heroku-postbuild": "ng build --prod",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "engines": {
+    "node": "12.19.0",
+    "npm": "6.14.8"
+ },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.5",
