@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PacientesClass } from '../pacientes/pacientes';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { FonoClass } from './fono';
 
 @Injectable({
@@ -7,15 +7,37 @@ import { FonoClass } from './fono';
 })
 export class FonoService {
 
-  informacoes: FonoClass[] = [];
+  atendimentos: FonoClass[] = [];
 
-  constructor() { }
+  private readonly url = 'https://projetofinal-back2021.herokuapp.com/atendimentos';
+
+  constructor(private httpClient: HttpClient) { }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
 
   addInfo(info: FonoClass) {
-    this.informacoes.push(info);
+    this.atendimentos.push(info);
+  }
+
+  addatendimento(atendimento:FonoClass){
+    this.httpClient.post(this.url,atendimento)
+    .subscribe(
+      res => {
+       alert('Atendimento Salvo com Sucesso!');
+      },
+      err => {
+       console.error(err);
+      }
+      );
   }
 
   getInfos() {
-    return this.informacoes;
+    return this.atendimentos;
+  }
+
+  getAtendimentos(){
+    return this.httpClient.get<FonoClass[]>(this.url);
   }
 }

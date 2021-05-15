@@ -10,6 +10,7 @@ import { EscolaregularComponent } from './escolaregular/escolaregular.component'
 import { HomepageComponent } from './homepage/homepage.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfissionaisComponent } from './profissionais/profissionais.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PsicomotricidadeComponent,
     EscolaregularComponent,
     HomepageComponent,
-    PacientesComponent
+    PacientesComponent,
+    ProfissionaisComponent
   ],
   imports: [
     BrowserModule,

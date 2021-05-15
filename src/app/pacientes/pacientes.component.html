@@ -40,4 +40,39 @@
             </tbody>
         </table>
     </div>
+    <hr />
+    <form class='formulario'>
+        <div>
+            <label for="">Nome</label>
+            <input class='form-control' name='nomeprofissional' type="text" #nomeprofissional>
+        </div>
+        <div>
+            <label for="">Especialização</label>
+            <input class='form-control' name='especializacao' type="text" #especializacao>
+        </div>
+    </form>
+    <hr />
+    <div clas='botoes'>
+        <button
+        (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
+        <button
+            (click)="listarProfissionais()">Listar Profissionais</button>
+    </div>
+    <hr />
+    <div class='grade'>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Especialização</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let profissional of listaprofissionais; let i=index">
+                    <td>{{profissional._id}}</td>
+                    <td>{{profissional.nome}}</td>
+                    <td>{{profissional.especializacao}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

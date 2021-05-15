@@ -12,12 +12,10 @@ export class PacientesService {
 
   pacientes: PacientesClass[] = [];
 
-  //private readonly url = 'http://localhost:3000/pacientes';
   private readonly url = 'https://projetofinal-back2021.herokuapp.com/pacientes';
 
   constructor(private httpClient: HttpClient) { }
 
-  //Headers
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }

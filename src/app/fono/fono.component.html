@@ -9,6 +9,16 @@
         </ul>
     </form>
 </div>
+<div>
+    <label for="profissionais">Profissionais</label>
+    <form>
+        <ul class="" role="">
+            <li role="" *ngFor="let profissional of profissionais; let i=index">
+                <a class="" (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}} - {{profissional.especializacao}}</a>
+            </li>
+        </ul>
+    </form>
+</div>
 <hr />
 <div>
     <form class='formulario'>
@@ -19,6 +29,14 @@
         <div>
             <label for="">Idade: </label>
             <a>{{pacienteIdade}}</a>
+        </div>
+        <div>
+            <label for="">Profissional: </label>
+            <a>{{profissionalNome}}</a>
+        </div>
+        <div>
+            <label for="">Especialização: </label>
+            <a>{{profissionalEspecialidade}}</a>
         </div>
         <div>
             <label for="">Atendimento</label>
@@ -42,14 +60,18 @@
                 <th>Paciente ID</th>
                 <th>Paciente Nome</th>
                 <th>Data</th>
+                <th>Profissional Nome</th>
+                <th>Profissional Especialização</th>
                 <th>Atendimento</th>
                 <th>Orientacao</th>
             </thead>
             <tbody>
                 <tr *ngFor="let info of informacoes; let i=index">
-                    <td>{{info.pacienteId}}</td>
+                    <td>{{info.pacienteID}}</td>
                     <td>{{info.pacienteNome}}</td>
-                    <td>{{info.data | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                    <td>{{info.atendimentoData}}</td>
+                    <td>{{info.profissionalNome}}</td>
+                    <td>{{info.profissionalEspecialidade}}</td>
                     <td>{{info.atendimento}}</td>
                     <td>{{info.orientacao}}</td>
                 </tr>

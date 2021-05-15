@@ -1,7 +1,9 @@
 export class  FonoClass {
-    pacienteId:string = "";
+    pacienteID:string = "";
     pacienteNome:string = "";
-    data: Date = new Date;
+    atendimentoData: Date = new Date;
+    profissionalNome:string="";
+    profissionalEspecialidade: string="";
     atendimento: string = "";
     orientacao: string = "";
 }

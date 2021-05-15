@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PacientesClass } from '../pacientes/pacientes';
 import { PacientesService } from '../pacientes/pacientes.service';
+import { ProfissionalClass } from '../profissionais/profissionais';
+import { ProfissionaisService } from '../profissionais/profissionais.service';
 import { FonoClass } from './fono';
 import { FonoService } from './fono.service';
 
@@ -16,28 +18,37 @@ export class FonoComponent implements OnInit {
   pacientes: PacientesClass[] = [];
   paciente:PacientesClass = new PacientesClass;
   selectedPaciente:PacientesClass = new PacientesClass;
-  
+
   pacienteId:string="";
   pacienteNome:string="";
   pacienteIdade:string="";
 
-  constructor(private service: FonoService, private pacientesService: PacientesService) { }
+  profissionais: ProfissionalClass[] = [];
+  profissional:ProfissionalClass = new ProfissionalClass;
+
+  profissionalId:string="";
+  profissionalNome:string="";
+  profissionalEspecialidade:string="";
+
+  constructor(private atendimentoService: FonoService, private pacientesService: PacientesService, private profissionaisService: ProfissionaisService) { }
 
   ngOnInit(): void {
     this.info = new FonoClass();
     this.selectedPaciente = new PacientesClass;
-    this.informacoes = this.service.getInfos();
+    this.atendimentoService.getAtendimentos().subscribe(dados =>this.informacoes = dados);
     this.pacientesService.getPacientes().subscribe(dados => this.pacientes = dados);
-
+    this.profissionaisService.getProfissionais().subscribe(dados =>this.profissionais = dados);
   }
 
   addInfo(_atendimento: string, _orientacao: string) {
-    this.info.pacienteId = this.pacienteId;
+    this.info.pacienteID = this.pacienteId;
     this.info.pacienteNome = this.pacienteNome;
-    this.info.data = new Date;
+    this.info.atendimentoData = new Date;
+    this.info.profissionalNome = this.profissionalNome;
+    this.info.profissionalEspecialidade = this.profissionalEspecialidade;
     this.info.atendimento = _atendimento;
     this.info.orientacao = _orientacao;
-    this.service.addInfo(this.info);
+    this.atendimentoService.addatendimento(this.info);
     this.info = new FonoClass();
   }
 
@@ -45,6 +56,12 @@ export class FonoComponent implements OnInit {
     this.pacienteId = _id;
     this.pacienteNome = _nome;
     this.pacienteIdade = _idade;
+  }
+
+  selecionaProfissional(_id:string,_nome:string,_especializacao:string){
+    this.profissionalId = _id;
+    this.profissionalNome = _nome;
+    this.profissionalEspecialidade = _especializacao;
   }
 
   getNomePacienteSelecionado(){
