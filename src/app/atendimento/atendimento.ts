@@ -1,4 +1,4 @@
-export class  FonoClass {
+export class  AtendimentoClass {
     pacienteID:string = "";
     pacienteNome:string = "";
     atendimentoData: Date = new Date;

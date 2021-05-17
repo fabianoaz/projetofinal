@@ -10,14 +10,22 @@
             <input class='form-control' name='idade' type="number" #idade>
         </div>
         <div>
-            <label for="">Diagnóstico</label>
-            <input class='form-control' name='diagnostico' type="text" #diagnostico>
+            <label for="">Condição</label>
+            <input class='form-control' name='condicao' type="text" #condicao>
+        </div>
+        <div>
+            <label for="">O que o estudante faz</label>
+            <input class='form-control' name='condicao' type="text" #condicao>
+        </div>
+        <div>
+            <label for="">O que tem dificuldade de fazer</label>
+            <input class='form-control' name='condicao' type="text" #condicao>
         </div>
     </form>
     <hr />
     <div clas='botoes'>
         <button
-            (click)="addPaciente(nome.value,idade.value,diagnostico.value); nome.value='';idade.value='0';diagnostico.value=''">Incluir</button>
+            (click)="addPaciente(nome.value,idade.value,condicao.value); nome.value='';idade.value='0';condicao.value=''">Incluir</button>
             <button
             (click)="listarPacientes()">Listar Pacientes</button>
     </div>

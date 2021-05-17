@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FonoService } from './fono.service';
+import { AtendimentoService } from './atendimento.service';
 
 
 
 @NgModule({
-  providers: [FonoService],
+  providers: [AtendimentoService],
   declarations: [],
   imports: [
     CommonModule
   ]
 })
-export class FonoModule { }
+export class AtendimentoModule { }

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FonoComponent } from './fono/fono.component';
+import { AtendimentoComponent } from './atendimento/atendimento.component';
 import { PsicomotricidadeComponent } from './psicomotricidade/psicomotricidade.component';
 import { EscolaregularComponent } from './escolaregular/escolaregular.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -15,7 +15,7 @@ import { ProfissionaisComponent } from './profissionais/profissionais.component'
 @NgModule({
   declarations: [
     AppComponent,
-    FonoComponent,
+    AtendimentoComponent,
     PsicomotricidadeComponent,
     EscolaregularComponent,
     HomepageComponent,

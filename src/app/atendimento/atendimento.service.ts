@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { FonoClass } from './fono';
+import { AtendimentoClass } from './atendimento';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FonoService {
+export class AtendimentoService {
 
-  atendimentos: FonoClass[] = [];
+  atendimentos: AtendimentoClass[] = [];
 
-  private readonly url = 'https://projetofinal-back2021.herokuapp.com/atendimentos';
+  //private readonly url = 'https://projetofinal-back2021.herokuapp.com/atendimentos';
+  private readonly url = 'http://localhost:3000/atendimentos';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,11 +18,7 @@ export class FonoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  addInfo(info: FonoClass) {
-    this.atendimentos.push(info);
-  }
-
-  addatendimento(atendimento:FonoClass){
+  addatendimento(atendimento:AtendimentoClass){
     this.httpClient.post(this.url,atendimento)
     .subscribe(
       res => {
@@ -33,11 +30,12 @@ export class FonoService {
       );
   }
 
-  getInfos() {
-    return this.atendimentos;
+  getAtendimentos(){
+    return this.httpClient.get<AtendimentoClass[]>(this.url);
   }
 
-  getAtendimentos(){
-    return this.httpClient.get<FonoClass[]>(this.url);
-  }
+getAtendimentoPorPaciente(_id:string){
+  return this.httpClient.get<AtendimentoClass[]>(this.url + '/paciente/'+_id);
+}
+
 }

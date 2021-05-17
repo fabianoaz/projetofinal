@@ -1,36 +1,37 @@
 <hr />
 <div>
-    <form class='formulario'>
-        <div>
-            <label for="">Atendimento</label>
-            <input class='form-control' name='atendimento' type="text" #atendimento>
-        </div>
-        <div>
-            <label for="">Orientação</label>
-            <input class='form-control' name='orientacao' type="text" #orientacao>
-        </div>
+    <label for="pacientes">Pacientes</label>
+    <form>
+        <ul class="" role="">
+            <li role="" *ngFor="let paciente of listapacientes; let i=index">
+                <a class="" (click)="listarAtendimentosPaciente(paciente._id)">{{paciente._id}} - {{paciente.nome}}</a>
+                <!--<a class="" >{{paciente.nome}}</a>-->
+            </li>
+        </ul>
     </form>
-    <hr />
-    <div clas='botoes'>
-        <button
-            (click)="addInfo(atendimento.value,orientacao.value); atendimento.value=''; orientacao.value='' ">Incluir
-            informação</button>
-    </div>
-    <hr />
-    <div class='grade'>
-        <table>
-            <thead>
-                <th>Data</th>
-                <th>Atendimento</th>
-                <th>Orientacao</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let info of informacoes; let i=index">
-                    <td>{{info.data | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
-                    <td>{{info.atendimento}}</td>
-                    <td>{{info.orientacao}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+</div>
+<hr />
+<div class='grade'>
+    <table>
+        <thead>
+            <th>Paciente ID</th>
+            <th>Paciente Nome</th>
+            <th>Data</th>
+            <th>Profissional Nome</th>
+            <th>Profissional Especialização</th>
+            <th>Atendimento</th>
+            <th>Orientacao</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let atendimento of atendimentosPaciente; let i=index">
+                <td>{{atendimento.pacienteID}}</td>
+                <td>{{atendimento.pacienteNome}}</td>
+                <td>{{atendimento.atendimentoData}}</td>
+                <td>{{atendimento.profissionalNome}}</td>
+                <td>{{atendimento.profissionalEspecialidade}}</td>
+                <td>{{atendimento.atendimento}}</td>
+                <td>{{atendimento.orientacao}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
