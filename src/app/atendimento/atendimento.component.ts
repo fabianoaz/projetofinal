@@ -9,8 +9,8 @@ import { AtendimentoService } from './atendimento.service';
 
 @Component({
   selector: 'app-Atendimento',
-  templateUrl: './Atendimento.component.html',
-  styleUrls: ['./Atendimento.component.css']
+  templateUrl: './atendimento.component.html',
+  styleUrls: ['./atendimento.component.css']
 })
 export class AtendimentoComponent implements OnInit {
 
