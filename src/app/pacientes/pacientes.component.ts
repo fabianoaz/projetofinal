@@ -21,18 +21,21 @@ export class PacientesComponent implements OnInit {
   constructor(private pacientesService: PacientesService, private profissionaisService: ProfissionaisService) { }
 
   ngOnInit(): void {
+    this.listarPacientes()
     this.paciente = new PacientesClassCreate;
     this.pacientesService.getPacientes().subscribe(dados => this.listapacientes = dados);
     this.profissional = new ProfissionalClassCreate;
     this.profissionaisService.getProfissionais().subscribe(dados => this.listaprofissionais = dados);
   }
 
-  addPaciente(_nome: string, _idade: string, _condicao: string) {
+  addPaciente(_nome: string, _idade: string, _condicao: string, _faz:string, _dificuldade:string) {
     this.paciente.nome = _nome;
     this.paciente.idade = _idade;
     this.paciente.diagnostico = _condicao;
+    this.paciente.faz = _faz;
+    this.paciente.dificuldade = _dificuldade;
     this.pacientesService.addpaciente(this.paciente);
-    this.paciente = new PacientesClass;
+    this.paciente = new PacientesClassCreate;
     this.listarPacientes()
   }
 

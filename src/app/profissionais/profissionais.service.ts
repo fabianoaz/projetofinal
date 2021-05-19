@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { ProfissionalClass } from './profissionais';
 import { ProfissionalClassCreate } from './profissionalcreate';
+import {environment} from '../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,6 @@ export class ProfissionaisService {
 
   profissionais: ProfissionalClass[] = [];
 
-  private readonly url = 'https://projetofinal-back2021.herokuapp.com/profissionais';
-
   constructor(private httpClient: HttpClient) { }
 
   httpOptions = {
@@ -19,11 +18,11 @@ export class ProfissionaisService {
   }
 
   getProfissionais(){
-    return this.httpClient.get<ProfissionalClass[]>(this.url);
+    return this.httpClient.get<ProfissionalClass[]>(environment.apiUrl + '/profissionais/');
   }
 
   addprofissional(profissional:ProfissionalClassCreate){
-    this.httpClient.post(this.url,profissional)
+    this.httpClient.post(environment.apiUrl + '/profissionais/',profissional)
     .subscribe(
       res => {
        alert('Paciente Salvo com Sucesso!');

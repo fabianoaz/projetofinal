@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PacientesClass } from '../pacientes/pacientes';
 import { EscolaregularClass } from './escolaregular';
+import {environment} from '../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'

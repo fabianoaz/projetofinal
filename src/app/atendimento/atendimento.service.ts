@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AtendimentoClass } from './atendimento';
+import {environment} from '../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,6 @@ export class AtendimentoService {
 
   atendimentos: AtendimentoClass[] = [];
 
-  //private readonly url = 'https://projetofinal-back2021.herokuapp.com/atendimentos';
-  private readonly url = 'http://localhost:3000/atendimentos';
-
   constructor(private httpClient: HttpClient) { }
 
   httpOptions = {
@@ -19,7 +17,7 @@ export class AtendimentoService {
   }
 
   addatendimento(atendimento:AtendimentoClass){
-    this.httpClient.post(this.url,atendimento)
+    this.httpClient.post(environment.apiUrl + '/atendimentos/',atendimento)
     .subscribe(
       res => {
        alert('Atendimento Salvo com Sucesso!');
@@ -31,11 +29,11 @@ export class AtendimentoService {
   }
 
   getAtendimentos(){
-    return this.httpClient.get<AtendimentoClass[]>(this.url);
+    return this.httpClient.get<AtendimentoClass[]>(environment.apiUrl  + '/atendimentos/');
   }
 
 getAtendimentoPorPaciente(_id:string){
-  return this.httpClient.get<AtendimentoClass[]>(this.url + '/paciente/'+_id);
+  return this.httpClient.get<AtendimentoClass[]>(environment.apiUrl  + '/atendimentos/paciente/' + _id);
 }
 
 }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AtendimentoComponent } from './atendimento/atendimento.component';
-import { PsicomotricidadeComponent } from './psicomotricidade/psicomotricidade.component';
 import { EscolaregularComponent } from './escolaregular/escolaregular.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
@@ -16,7 +16,6 @@ import { ProfissionaisComponent } from './profissionais/profissionais.component'
   declarations: [
     AppComponent,
     AtendimentoComponent,
-    PsicomotricidadeComponent,
     EscolaregularComponent,
     HomepageComponent,
     PacientesComponent,
@@ -26,7 +25,8 @@ import { ProfissionaisComponent } from './profissionais/profissionais.component'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

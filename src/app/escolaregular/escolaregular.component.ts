@@ -26,7 +26,6 @@ export class EscolaregularComponent implements OnInit {
     this.info = new EscolaregularClass();
     this.informacoes = this.service.getInfos();
     this.atendimentoService.getAtendimentos().subscribe(dados =>this.atendimentos = dados);
-    //this.atendimentoService.getAtendimentos().subscribe(dados => this.atendimentosPaciente = dados)
     this.pacienteService.getPacientes().subscribe(dados => this.listapacientes = dados)
   }
 

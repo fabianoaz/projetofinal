@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map, tap } from 'rxjs/operators';
 import { PacientesClass} from './pacientes';
 import { PacientesClassCreate } from './pacientescreate';
+import {environment} from '../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,6 @@ export class PacientesService {
 
   pacientes: PacientesClass[] = [];
 
-  private readonly url = 'https://projetofinal-back2021.herokuapp.com/pacientes';
-
   constructor(private httpClient: HttpClient) { }
 
   httpOptions = {
@@ -21,11 +20,11 @@ export class PacientesService {
   }
 
   getPacientes(){
-    return this.httpClient.get<PacientesClass[]>(this.url);
+    return this.httpClient.get<PacientesClass[]>(environment.apiUrl + '/pacientes/');
   }
 
   addpaciente(paciente:PacientesClassCreate){
-    this.httpClient.post(this.url,paciente)
+    this.httpClient.post(environment.apiUrl + '/pacientes/',paciente)
     .subscribe(
       res => {
        alert('Paciente Salvo com Sucesso!');

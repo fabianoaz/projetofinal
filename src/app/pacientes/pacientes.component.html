@@ -15,17 +15,17 @@
         </div>
         <div>
             <label for="">O que o estudante faz</label>
-            <input class='form-control' name='condicao' type="text" #condicao>
+            <input class='form-control' name='faz' type="text" #faz>
         </div>
         <div>
             <label for="">O que tem dificuldade de fazer</label>
-            <input class='form-control' name='condicao' type="text" #condicao>
+            <input class='form-control' name='dificuldade' type="text" #dificuldade>
         </div>
     </form>
     <hr />
     <div clas='botoes'>
         <button
-            (click)="addPaciente(nome.value,idade.value,condicao.value); nome.value='';idade.value='0';condicao.value=''">Incluir</button>
+            (click)="addPaciente(nome.value,idade.value,condicao.value,faz.value,dificuldade.value); nome.value='';idade.value='0';condicao.value='';faz.value='';dificuldade.value=''">Incluir</button>
             <button
             (click)="listarPacientes()">Listar Pacientes</button>
     </div>
@@ -37,6 +37,8 @@
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Condição</th>
+                <th>O que o estudante faz</th>
+                <th>O que tem dificuldade de fazer</th>
             </thead>
             <tbody>
                 <tr *ngFor="let paciente of listapacientes; let i=index">
@@ -44,6 +46,8 @@
                     <td>{{paciente.nome}}</td>
                     <td>{{paciente.idade}}</td>
                     <td>{{paciente.diagnostico}}</td>
+                    <td>{{paciente.faz}}</td>
+                    <td>{{paciente.dificuldade}}</td>
                 </tr>
             </tbody>
         </table>
