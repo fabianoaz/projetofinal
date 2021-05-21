@@ -5,6 +5,7 @@ import { ProfissionalClassCreate } from '../profissionais/profissionalcreate';
 import { PacientesClass} from './pacientes';
 import { PacientesService } from './pacientes.service';
 import { PacientesClassCreate } from './pacientescreate';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pacientes',

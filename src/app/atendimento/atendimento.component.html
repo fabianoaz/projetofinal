@@ -1,81 +1,82 @@
-<div>
-    <label for="profissionais">Profissionais</label>
-    <form>
-        <ul class="" role="">
-            <li role="" *ngFor="let profissional of profissionais; let i=index">
-                <a class="" (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}} - {{profissional.especializacao}}</a>
-            </li>
-        </ul>
-    </form>
-</div>
-<hr />
-<div>
-    <label for="pacientes">Pacientes</label>
-    <form>
-        <ul class="" role="">
-            <li role="" *ngFor="let paciente of pacientes; let i=index">
-                <a class="" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente._id}} - {{paciente.nome}}</a>
-            </li>
-        </ul>
-    </form>
-</div>
-<hr />
-<div>
-    <form class='formulario'>
-        <div>
-            <label for="">Profissional: </label>
-            <a>{{profissionalNome}}</a>
+<br/>
+<div class='centralizar'>
+    <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profissionais</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div role="" *ngFor="let profissional of profissionais; let i=index">
+                <button class="" (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}}
+                    - {{profissional.especializacao}}</button>
+            </div>
         </div>
-        <div>
-            <label for="">Especialização: </label>
-            <a>{{profissionalEspecialidade}}</a>
-        </div>
-        <div>
-            <label for="">Nome: </label>
-            <a>{{pacienteNome}}</a>
-        </div>
-        <div>
-            <label for="">Idade: </label>
-            <a>{{pacienteIdade}}</a>
-        </div>
-        <div>
-            <label for="">Atendimento</label>
-            <input class='form-control' name='atendimento' type="text" #atendimento>
-        </div>
-        <div>
-            <label for="">Orientação</label>
-            <input class='form-control' name='orientacao' type="text" #orientacao>
-        </div>
-    </form>
-    <hr />
-    <div clas='botoes'>
-        <button
-            (click)="addInfo(atendimento.value,orientacao.value); atendimento.value=''; orientacao.value='' ">Incluir
-            informação</button>
     </div>
     <hr />
-    <div class='grade'>
-        <table>
-            <thead>
-                <th>Paciente ID</th>
-                <th>Paciente Nome</th>
-                <th>Data</th>
-                <th>Profissional Nome</th>
-                <th>Profissional Especialização</th>
-                <th>Atendimento</th>
-                <th>Orientacao</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let info of informacoes; let i=index">
-                    <td>{{info.pacienteID}}</td>
-                    <td>{{info.pacienteNome}}</td>
-                    <td>{{info.atendimentoData}}</td>
-                    <td>{{info.profissionalNome}}</td>
-                    <td>{{info.profissionalEspecialidade}}</td>
-                    <td>{{info.atendimento}}</td>
-                    <td>{{info.orientacao}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Pacientes</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div role="" *ngFor="let paciente of pacientes; let i=index">
+                <button class="" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente._id}}
+                    - {{paciente.nome}}</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <form class='formulario'>
+            <div>
+                <label for="">Profissional: </label>
+                <a>{{profissionalNome}}</a>
+            </div>
+            <div>
+                <label for="">Especialização: </label>
+                <a>{{profissionalEspecialidade}}</a>
+            </div>
+            <div>
+                <label for="">Nome: </label>
+                <a>{{pacienteNome}}</a>
+            </div>
+            <div>
+                <label for="">Idade: </label>
+                <a>{{pacienteIdade}}</a>
+            </div>
+            <div>
+                <label for="">Atendimento</label>
+                <input class='form-control' name='atendimento' type="text" #atendimento>
+            </div>
+            <div>
+                <label for="">Orientação</label>
+                <input class='form-control' name='orientacao' type="text" #orientacao>
+            </div>
+        </form>
+        <hr />
+        <div clas='botoes'>
+            <button class="btn btn-primary"
+                (click)="addInfo(atendimento.value,orientacao.value); atendimento.value=''; orientacao.value='' ">Incluir
+                informação</button>
+        </div>
+        <hr />
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <th>Paciente ID</th>
+                    <th>Paciente Nome</th>
+                    <th>Data</th>
+                    <th>Profissional Nome</th>
+                    <th>Profissional Especialização</th>
+                    <th>Atendimento</th>
+                    <th>Orientacao</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let info of informacoes; let i=index">
+                        <td>{{info.pacienteID}}</td>
+                        <td>{{info.pacienteNome}}</td>
+                        <td>{{info.atendimentoData}}</td>
+                        <td>{{info.profissionalNome}}</td>
+                        <td>{{info.profissionalEspecialidade}}</td>
+                        <td>{{info.atendimento}}</td>
+                        <td>{{info.orientacao}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

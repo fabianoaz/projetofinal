@@ -1,39 +1,38 @@
-<hr />
-<div>
-    <label for="pacientes">Pacientes</label>
-    <form>
-        <ul class="" role="">
-            <li role="" *ngFor="let paciente of listapacientes; let i=index">
-                <a class="" (click)="listarAtendimentosPaciente(paciente._id)">{{paciente._id}} - {{paciente.nome}}</a>
-                <!--<a class="" >{{paciente.nome}}</a>-->
-            </li>
-        </ul>
-    </form>
-</div>
-<hr />
-<div class='grade'>
-    <table>
-        <thead>
-            <th>Paciente ID</th>
-            <th>Paciente Nome</th>
-            <th>Data</th>
-            <th>Profissional Nome</th>
-            <th>Profissional Especialização</th>
-            <th>Atendimento</th>
-            <th>Orientacao</th>
-            <th>Detalhes</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let atendimento of atendimentosPaciente; let i=index">
-                <td>{{atendimento.pacienteID}}</td>
-                <td>{{atendimento.pacienteNome}}</td>
-                <td>{{atendimento.atendimentoData}}</td>
-                <td>{{atendimento.profissionalNome}}</td>
-                <td>{{atendimento.profissionalEspecialidade}}</td>
-                <td>{{atendimento.atendimento}}</td>
-                <td>{{atendimento.orientacao}}</td>
-                <td><button type="button" data-target="#modal">detalhe</button></td>
-            </tr>
-        </tbody>
-    </table>
+<br/>
+<div class='centralizar'>
+    <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Listar Alunos</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div role="" *ngFor="let paciente of listapacientes; let i=index">
+                <button class="" (click)="listarAtendimentosPaciente(paciente._id)">{{paciente._id}} - {{paciente.nome}}</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <th>Paciente ID</th>
+                <th>Paciente Nome</th>
+                <th>Data</th>
+                <th>Profissional Nome</th>
+                <th>Profissional Especialização</th>
+                <th>Atendimento</th>
+                <th>Orientacao</th>
+                <th>Detalhes</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let atendimento of atendimentosPaciente; let i=index">
+                    <td>{{atendimento.pacienteID}}</td>
+                    <td>{{atendimento.pacienteNome}}</td>
+                    <td>{{atendimento.atendimentoData}}</td>
+                    <td>{{atendimento.profissionalNome}}</td>
+                    <td>{{atendimento.profissionalEspecialidade}}</td>
+                    <td>{{atendimento.atendimento}}</td>
+                    <td>{{atendimento.orientacao}}</td>
+                    <td><button class="btn btn-primary" type="button" data-target="#modal">detalhe</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

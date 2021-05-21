@@ -5,6 +5,7 @@ import { PacientesClass } from '../pacientes/pacientes';
 import { PacientesService } from '../pacientes/pacientes.service';
 import { EscolaregularClass } from './escolaregular';
 import { EscolaregularService } from './escolaregular.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-escolaregular',

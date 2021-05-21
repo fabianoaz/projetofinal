@@ -11,6 +11,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfissionaisComponent } from './profissionais/profissionais.component';
+import { PacientemodalComponent } from './pacientemodal/pacientemodal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { ProfissionaisComponent } from './profissionais/profissionais.component'
     EscolaregularComponent,
     HomepageComponent,
     PacientesComponent,
-    ProfissionaisComponent
+    ProfissionaisComponent,
+    PacientemodalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSliderModule
+    MatSliderModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

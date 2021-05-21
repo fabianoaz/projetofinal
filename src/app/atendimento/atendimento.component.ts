@@ -6,6 +6,7 @@ import { ProfissionalClass } from '../profissionais/profissionais';
 import { ProfissionaisService } from '../profissionais/profissionais.service';
 import { AtendimentoClass } from './atendimento';
 import { AtendimentoService } from './atendimento.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-Atendimento',

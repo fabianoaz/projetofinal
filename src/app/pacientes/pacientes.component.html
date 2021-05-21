@@ -1,90 +1,99 @@
-<hr />
-<div>
-    <form class='formulario'>
-        <div>
-            <label for="">Nome</label>
-            <input class='form-control' name='nome' type="text" #nome>
-        </div>
-        <div>
-            <label for="">Idade</label>
-            <input class='form-control' name='idade' type="number" #idade>
-        </div>
-        <div>
-            <label for="">Condição</label>
-            <input class='form-control' name='condicao' type="text" #condicao>
-        </div>
-        <div>
-            <label for="">O que o estudante faz</label>
-            <input class='form-control' name='faz' type="text" #faz>
-        </div>
-        <div>
-            <label for="">O que tem dificuldade de fazer</label>
-            <input class='form-control' name='dificuldade' type="text" #dificuldade>
-        </div>
-    </form>
-    <hr />
-    <div clas='botoes'>
-        <button
-            (click)="addPaciente(nome.value,idade.value,condicao.value,faz.value,dificuldade.value); nome.value='';idade.value='0';condicao.value='';faz.value='';dificuldade.value=''">Incluir</button>
-            <button
-            (click)="listarPacientes()">Listar Pacientes</button>
-    </div>
-    <hr />
-    <div class='grade'>
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Condição</th>
-                <th>O que o estudante faz</th>
-                <th>O que tem dificuldade de fazer</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let paciente of listapacientes; let i=index">
-                    <td>{{paciente._id}}</td>
-                    <td>{{paciente.nome}}</td>
-                    <td>{{paciente.idade}}</td>
-                    <td>{{paciente.diagnostico}}</td>
-                    <td>{{paciente.faz}}</td>
-                    <td>{{paciente.dificuldade}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <hr />
-    <form class='formulario'>
-        <div>
-            <label for="">Nome</label>
-            <input class='form-control' name='nomeprofissional' type="text" #nomeprofissional>
-        </div>
-        <div>
-            <label for="">Especialização</label>
-            <input class='form-control' name='especializacao' type="text" #especializacao>
-        </div>
-    </form>
-    <hr />
-    <div clas='botoes'>
-        <button
-        (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
-        <button
-            (click)="listarProfissionais()">Listar Profissionais</button>
-    </div>
-    <hr />
-    <div class='grade'>
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Especialização</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let profissional of listaprofissionais; let i=index">
-                    <td>{{profissional._id}}</td>
-                    <td>{{profissional.nome}}</td>
-                    <td>{{profissional.especializacao}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<br/>
+<div class='centralizar'>
+    <ngb-accordion [closeOthers]="true" activeIds="static-1">
+        <ngb-panel id="static-1" title="Alunos / Pacientes">
+          <ng-template ngbPanelContent>
+            <form class='formulario'>
+                <div>
+                    <label for="">Nome</label>
+                    <input class='form-control' name='nome' type="text" #nome>
+                </div>
+                <div>
+                    <label for="">Idade</label>
+                    <input class='form-control' name='idade' type="number" #idade>
+                </div>
+                <div>
+                    <label for="">Condição</label>
+                    <input class='form-control' name='condicao' type="text" #condicao>
+                </div>
+                <div>
+                    <label for="">O que o estudante faz</label>
+                    <input class='form-control' name='faz' type="text" #faz>
+                </div>
+                <div>
+                    <label for="">O que tem dificuldade de fazer</label>
+                    <input class='form-control' name='dificuldade' type="text" #dificuldade>
+                </div>
+            </form>
+            <hr />
+            <div clas='botoes'>
+                <button class="btn btn-primary"
+                    (click)="addPaciente(nome.value,idade.value,condicao.value,faz.value,dificuldade.value); nome.value='';idade.value='0';condicao.value='';faz.value='';dificuldade.value=''">Incluir</button>
+                    <button class="btn btn-primary"
+                    (click)="listarPacientes()">Listar Pacientes</button>
+            </div>
+            <hr />
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Condição</th>
+                        <th>O que o estudante faz</th>
+                        <th>O que tem dificuldade de fazer</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let paciente of listapacientes; let i=index">
+                            <td>{{paciente._id}}</td>
+                            <td>{{paciente.nome}}</td>
+                            <td>{{paciente.idade}}</td>
+                            <td>{{paciente.diagnostico}}</td>
+                            <td>{{paciente.faz}}</td>
+                            <td>{{paciente.dificuldade}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-2" title="Profissionais">
+          <ng-template ngbPanelContent>
+            <form class='formulario'>
+                <div>
+                    <label for="">Nome</label>
+                    <input class='form-control' name='nomeprofissional' type="text" #nomeprofissional>
+                </div>
+                <div>
+                    <label for="">Especialização</label>
+                    <input class='form-control' name='especializacao' type="text" #especializacao>
+                </div>
+            </form>
+            <hr />
+            <div clas='botoes'>
+                <button class="btn btn-primary" 
+                (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
+                <button class="btn btn-primary"  
+                    (click)="listarProfissionais()">Listar Profissionais</button>
+            </div>
+            <hr />
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Especialização</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let profissional of listaprofissionais; let i=index">
+                            <td>{{profissional._id}}</td>
+                            <td>{{profissional.nome}}</td>
+                            <td>{{profissional.especializacao}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
 </div>

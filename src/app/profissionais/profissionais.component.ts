@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfissionalClass } from './profissionais';
 import { ProfissionaisService } from './profissionais.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-profissionais',

@@ -1,12 +1,38 @@
-<h1>Aplicação Teste</h1>
+<h1>Integrar Infância</h1>
 
-<nav>
+<!--
+<nav ngbNav #nav="ngbNav"class="nav-tabs">
   <button routerLink="/homepage"> Home</button>
   <button routerLink="/escolaregular"> Escola Regular</button>
   <button routerLink="/atendimento"> Atendimentos</button>
   <button routerLink="/pacientes"> Cadastros</button>
 </nav>
+-->
 
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink routerLink="/homepage">Home</a>
+    <ng-template ngbNavContent>
+      <p>Raw denim</p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink routerLink="/escolaregular">Escola Regular</a>
+    <ng-template ngbNavContent>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink routerLink="/atendimento">Atendimentos</a>
+    <ng-template ngbNavContent>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="4">
+    <a ngbNavLink routerLink="/pacientes">Cadastros</a>
+    <ng-template ngbNavContent>
+    </ng-template>
+  </li>
+</ul>
+
+
 
 <router-outlet></router-outlet>
