@@ -1,14 +1,3 @@
-<hr />
-<div>
-    <label for="pacientes">Pacientes</label>
-    <form>
-        <ul class="" role="">
-            <li role="" *ngFor="let paciente of pacientes; let i=index">
-                <a class="" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente._id}} - {{paciente.nome}}</a>
-            </li>
-        </ul>
-    </form>
-</div>
 <div>
     <label for="profissionais">Profissionais</label>
     <form>
@@ -21,15 +10,18 @@
 </div>
 <hr />
 <div>
+    <label for="pacientes">Pacientes</label>
+    <form>
+        <ul class="" role="">
+            <li role="" *ngFor="let paciente of pacientes; let i=index">
+                <a class="" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente._id}} - {{paciente.nome}}</a>
+            </li>
+        </ul>
+    </form>
+</div>
+<hr />
+<div>
     <form class='formulario'>
-        <div>
-            <label for="">Nome: </label>
-            <a>{{pacienteNome}}</a>
-        </div>
-        <div>
-            <label for="">Idade: </label>
-            <a>{{pacienteIdade}}</a>
-        </div>
         <div>
             <label for="">Profissional: </label>
             <a>{{profissionalNome}}</a>
@@ -37,6 +29,14 @@
         <div>
             <label for="">Especialização: </label>
             <a>{{profissionalEspecialidade}}</a>
+        </div>
+        <div>
+            <label for="">Nome: </label>
+            <a>{{pacienteNome}}</a>
+        </div>
+        <div>
+            <label for="">Idade: </label>
+            <a>{{pacienteIdade}}</a>
         </div>
         <div>
             <label for="">Atendimento</label>

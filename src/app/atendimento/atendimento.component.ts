@@ -37,7 +37,7 @@ export class AtendimentoComponent implements OnInit {
     this.info = new AtendimentoClass();
     this.selectedPaciente = new PacientesClass;
     this.atendimentoService.getAtendimentos().subscribe(dados =>this.informacoes = dados);
-    this.pacientesService.getPacientes().subscribe(dados => this.pacientes = dados);
+    //this.pacientesService.getPacientes().subscribe(dados => this.pacientes = dados);
     this.profissionaisService.getProfissionais().subscribe(dados =>this.profissionais = dados);
   }
 
@@ -63,6 +63,7 @@ export class AtendimentoComponent implements OnInit {
     this.profissionalId = _id;
     this.profissionalNome = _nome;
     this.profissionalEspecialidade = _especializacao;
+    this.pacientesService.getPacientesProfissional(_id).subscribe(dados => this.pacientes = dados);
   }
 
   getNomePacienteSelecionado(){

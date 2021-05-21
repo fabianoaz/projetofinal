@@ -21,6 +21,7 @@
             <th>Profissional Especialização</th>
             <th>Atendimento</th>
             <th>Orientacao</th>
+            <th>Detalhes</th>
         </thead>
         <tbody>
             <tr *ngFor="let atendimento of atendimentosPaciente; let i=index">
@@ -31,7 +32,14 @@
                 <td>{{atendimento.profissionalEspecialidade}}</td>
                 <td>{{atendimento.atendimento}}</td>
                 <td>{{atendimento.orientacao}}</td>
+                <td><button type="button" data-target="#modal">detalhe</button></td>
             </tr>
         </tbody>
     </table>
+    <div class="modal-teste">
+        <div id="modal">
+            <h1>Teste de Modal</h1>
+            <button>OK</button>
+        </div>
+    </div>
 </div>

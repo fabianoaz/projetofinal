@@ -23,6 +23,10 @@ export class PacientesService {
     return this.httpClient.get<PacientesClass[]>(environment.apiUrl + '/pacientes/');
   }
 
+  getPacientesProfissional(profissionalID:string){
+    return this.httpClient.get<PacientesClass[]>(environment.apiUrl + '/pacientes/profissional/' + profissionalID);
+  }
+
   addpaciente(paciente:PacientesClassCreate){
     this.httpClient.post(environment.apiUrl + '/pacientes/',paciente)
     .subscribe(
