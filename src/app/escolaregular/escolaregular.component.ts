@@ -5,11 +5,12 @@ import { PacientesClass } from '../pacientes/pacientes';
 import { PacientesService } from '../pacientes/pacientes.service';
 import { EscolaregularClass } from './escolaregular';
 import { EscolaregularService } from './escolaregular.service';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-escolaregular',
   templateUrl: './escolaregular.component.html',
+  providers: [NgbModalConfig, NgbModal],
   styleUrls: ['./escolaregular.component.css']
 })
 export class EscolaregularComponent implements OnInit {
@@ -20,14 +21,19 @@ export class EscolaregularComponent implements OnInit {
   atendimentos: AtendimentoClass[] = [];
   listapacientes: PacientesClass[] = [];
   atendimentosPaciente: AtendimentoClass[] = [];
+  pacienteNome:string="";
+  paciente: PacientesClass = new PacientesClass;
 
-  constructor(private service: EscolaregularService, private atendimentoService: AtendimentoService, private pacienteService: PacientesService) { }
+  constructor(private service: EscolaregularService, private atendimentoService: AtendimentoService, private pacienteService: PacientesService, config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+   }
 
   ngOnInit(): void {
     this.info = new EscolaregularClass();
     this.informacoes = this.service.getInfos();
     this.atendimentoService.getAtendimentos().subscribe(dados =>this.atendimentos = dados);
-    this.pacienteService.getPacientes().subscribe(dados => this.listapacientes = dados)
+    this.pacienteService.getPacientes().subscribe(dados => this.listapacientes = dados);
   }
 
   addInfo(_atendimento: string, _orientacao: string) {
@@ -39,7 +45,16 @@ export class EscolaregularComponent implements OnInit {
   }
 
   listarAtendimentosPaciente(_idPaciente:string) {
+    this.pacienteService.getPacienteID(_idPaciente).subscribe(dados =>this.paciente = dados);
     this.atendimentoService.getAtendimentoPorPaciente(_idPaciente).subscribe(dados => this.atendimentosPaciente = dados)
+  }
+
+  print(){
+    window.print();
+  }
+
+  open(content: any) {
+    this.modalService.open(content, { size: 'xl' });
   }
 
 }

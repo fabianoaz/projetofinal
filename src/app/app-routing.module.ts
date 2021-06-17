@@ -4,13 +4,15 @@ import { EscolaregularComponent } from './escolaregular/escolaregular.component'
 import { AtendimentoComponent } from './atendimento/atendimento.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { PacientemodalComponent } from './pacientemodal/pacientemodal.component';
+import { RelatorioComponent } from './relatorio/relatorio.component';
 
 const routes: Routes = [
   {path: 'homepage', redirectTo: '/', pathMatch: 'full'},
   {path: 'atendimento',component: AtendimentoComponent},
   {path: 'escolaregular',component: EscolaregularComponent},
   {path: 'pacientes',component: PacientesComponent},
-  {path: 'pacientemodal',component: PacientemodalComponent}
+  {path: 'pacientemodal',component: PacientemodalComponent},
+  {path: 'relatorio',component: RelatorioComponent}
 ];
 
 @NgModule({

@@ -3,6 +3,16 @@ table, tr, td{
 }
 
 .centralizar{
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+label{
+    font-weight: bold;
+}
+
+a{
+    margin-left: 5px;
+    font-weight: bold;
+    font-style: italic;
 }

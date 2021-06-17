@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfissionaisComponent } from './profissionais/profissionais.component';
 import { PacientemodalComponent } from './pacientemodal/pacientemodal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RelatorioComponent } from './relatorio/relatorio.component';
+
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomepageComponent,
     PacientesComponent,
     ProfissionaisComponent,
-    PacientemodalComponent
+    PacientemodalComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     HttpClientModule,
     MatSliderModule,
-    NgbModule
+    NgbModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

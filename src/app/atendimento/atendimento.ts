@@ -6,4 +6,5 @@ export class  AtendimentoClass {
     profissionalEspecialidade: string="";
     atendimento: string = "";
     orientacao: string = "";
+    evolucao:number = 0;
 }

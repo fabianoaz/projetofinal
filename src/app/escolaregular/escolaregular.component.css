@@ -2,7 +2,44 @@ table, tr, td{
     border: 1px solid black;
 }
 
+#tabeladados > td{
+    width: 25%;
+    height: auto;
+}
+
+label{
+    font-weight: bold;
+}
+
 .centralizar{
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#dadospaciente{
+    width: 50%; 
+    display: inline-block;
+    text-align: left;
+}
+
+#dadospaciente > label{
+    font-display: bold;
+    float: left;
+}
+
+#dadospaciente > h2{
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+#detalhespaciente{
+    width: 50%; 
+    display: inline-block;
+    text-align: left;
+}
+
+#teste{
+    margin: 5px 0;
+    height: 100px; 
 }

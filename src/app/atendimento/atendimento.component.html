@@ -1,40 +1,42 @@
-<br/>
 <div class='centralizar'>
-    <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profissionais</button>
+<h1 class="jumbotron" style="text-align: center; font-weight: bold;">Registro de Atendimentos</h1>
+<br/>
+
+    <div ngbDropdown class="d-inline">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar profissional</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <div role="" *ngFor="let profissional of profissionais; let i=index">
-                <button class="" (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}}
+                <button ngbDropdownItem *ngFor="let profissional of profissionais; let i=index" (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}}
                     - {{profissional.especializacao}}</button>
-            </div>
         </div>
     </div>
+
     <hr />
+
     <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Pacientes</button>
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar paciente</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <div role="" *ngFor="let paciente of pacientes; let i=index">
-                <button class="" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente._id}}
-                    - {{paciente.nome}}</button>
-            </div>
+                <button ngbDropdownItem *ngFor="let paciente of pacientes; let i=index" (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade)">{{paciente.nome}}</button>
         </div>
     </div>
     <hr />
     <div>
+        <div>
+            <h3>Atendimento</h3>
+        </div>
         <form class='formulario'>
-            <div>
+            <div style="float: left;">
                 <label for="">Profissional: </label>
                 <a>{{profissionalNome}}</a>
             </div>
-            <div>
+            <div style="margin-left: 50%;">
                 <label for="">Especialização: </label>
                 <a>{{profissionalEspecialidade}}</a>
             </div>
-            <div>
+            <div style="float: left;">
                 <label for="">Nome: </label>
                 <a>{{pacienteNome}}</a>
             </div>
-            <div>
+            <div  style="margin-left: 50%;">
                 <label for="">Idade: </label>
                 <a>{{pacienteIdade}}</a>
             </div>
@@ -48,6 +50,19 @@
             </div>
         </form>
         <hr />
+        <div>
+            <h3>Evolução</h3>
+        </div>
+
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar evolução</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <option ngbDropdownItem *ngFor="let ev of evolucao; let i=index" value=ev.valor (click)="selecionaEvolucao(ev.valor)">{{ev.descricao}}</option>
+            </div>
+        </div>
+        <h2 >{{pacienteEvolucaoDsc}}</h2>
+
+        <hr />
         <div clas='botoes'>
             <button class="btn btn-primary"
                 (click)="addInfo(atendimento.value,orientacao.value); atendimento.value=''; orientacao.value='' ">Incluir
@@ -55,6 +70,9 @@
         </div>
         <hr />
         <div>
+            <div>
+                <h3>Lista de atendimentos</h3>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <th>Paciente ID</th>
@@ -64,6 +82,7 @@
                     <th>Profissional Especialização</th>
                     <th>Atendimento</th>
                     <th>Orientacao</th>
+                    <th>Evolução</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let info of informacoes; let i=index">
@@ -74,6 +93,7 @@
                         <td>{{info.profissionalEspecialidade}}</td>
                         <td>{{info.atendimento}}</td>
                         <td>{{info.orientacao}}</td>
+                        <td>{{info.evolucao}}</td>
                     </tr>
                 </tbody>
             </table>

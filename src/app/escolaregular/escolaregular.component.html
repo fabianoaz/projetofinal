@@ -1,14 +1,53 @@
-<br/>
 <div class='centralizar'>
-    <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Listar Alunos</button>
+    <h1 class="jumbotron" style="text-align: center; font-weight: bold;">Consulta a Atendimentos de Alunos</h1>
+
+    <div ngbDropdown class="d-inline">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar aluno</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <div role="" *ngFor="let paciente of listapacientes; let i=index">
-                <button class="" (click)="listarAtendimentosPaciente(paciente._id)">{{paciente._id}} - {{paciente.nome}}</button>
-            </div>
+            <button ngbDropdownItem *ngFor="let paciente of listapacientes; let i=index"
+                (click)="listarAtendimentosPaciente(paciente._id)">{{paciente.nome}}</button>
         </div>
     </div>
+
     <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-outline-primary" (click)="open(content)">Imprimir</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-2">
+            <label class="col-md-2 col-form-label">Nome:</label>
+        </div>
+        <div class="col-md-4">{{paciente.nome}}</div>
+        <div class="col-md-6">
+            <label class="col-md-6 col-form-label">O que consigo fazer sozinho</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label class="col-md-2 col-form-label">Idade:</label>
+        </div>
+        <div class="col-md-4">{{paciente.idade}}</div>
+        <div class="col-md-6">{{paciente.faz}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label class="col-md-2 col-form-label">Condição:</label>
+        </div>
+        <div class="col-md-4">{{paciente.diagnostico}}</div>
+        <div class="col-md-6">
+            <label class="col-md-6 col-form-label">O que tenho dificuldade em fazer</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-6">{{paciente.dificuldade}}</div>
+    </div>
+
     <div>
         <table class="table table-striped">
             <thead>
@@ -19,7 +58,7 @@
                 <th>Profissional Especialização</th>
                 <th>Atendimento</th>
                 <th>Orientacao</th>
-                <th>Detalhes</th>
+                <!--<th>Detalhes</th>-->
             </thead>
             <tbody>
                 <tr *ngFor="let atendimento of atendimentosPaciente; let i=index">
@@ -30,9 +69,81 @@
                     <td>{{atendimento.profissionalEspecialidade}}</td>
                     <td>{{atendimento.atendimento}}</td>
                     <td>{{atendimento.orientacao}}</td>
-                    <td><button class="btn btn-primary" type="button" data-target="#modal">detalhe</button></td>
+                    <!--<td><button class="btn btn-primary" type="button" data-target="#modal">
+                        <i class="bi bi-printer">detalhe</i></button></td>-->
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss" id="reportM">
+    <div class="modal-header">
+        <h2 class="modal-title" id="modal-basic-title" style="text-align: center; font-weight: bold;">Consulta a
+            Atendimentos</h2>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="col-md-2 col-form-label">Nome:</label>
+            </div>
+            <div class="col-md-4">{{paciente.nome}}</div>
+            <div class="col-md-6">
+                <label class="col-md-6 col-form-label">O que consigo fazer sozinho</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="col-md-2 col-form-label">Idade:</label>
+            </div>
+            <div class="col-md-4">{{paciente.idade}}</div>
+            <div class="col-md-6">{{paciente.faz}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="col-md-2 col-form-label">Condição:</label>
+            </div>
+            <div class="col-md-4">{{paciente.diagnostico}}</div>
+            <div class="col-md-6">
+                <label class="col-md-6 col-form-label">O que tenho dificuldade em fazer</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-6">{{paciente.dificuldade}}</div>
+        </div>
+
+        <hr />
+
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <th>Paciente Nome</th>
+                    <th>Data</th>
+                    <th>Profissional Nome</th>
+                    <th>Profissional Especialização</th>
+                    <th>Atendimento</th>
+                    <th>Orientacao</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let atendimento of atendimentosPaciente; let i=index">
+                        <td>{{atendimento.pacienteNome}}</td>
+                        <td>{{atendimento.atendimentoData}}</td>
+                        <td>{{atendimento.profissionalNome}}</td>
+                        <td>{{atendimento.profissionalEspecialidade}}</td>
+                        <td>{{atendimento.atendimento}}</td>
+                        <td>{{atendimento.orientacao}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-outline-primary" (click)="print()">Imprimir</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Fechar</button>
+    </div>
+</ng-template>

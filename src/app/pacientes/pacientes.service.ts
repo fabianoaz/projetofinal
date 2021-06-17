@@ -23,6 +23,10 @@ export class PacientesService {
     return this.httpClient.get<PacientesClass[]>(environment.apiUrl + '/pacientes/');
   }
 
+  getPacienteID(_idPaciente:string){
+    return this.httpClient.get<PacientesClass>(environment.apiUrl + '/pacientes/' + _idPaciente);
+  }
+
   getPacientesProfissional(profissionalID:string){
     return this.httpClient.get<PacientesClass[]>(environment.apiUrl + '/pacientes/profissional/' + profissionalID);
   }
