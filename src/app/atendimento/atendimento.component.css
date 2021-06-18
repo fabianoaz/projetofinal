@@ -2,11 +2,6 @@ table, tr, td{
     border: 1px solid black;
 }
 
-.centralizar{
-    margin-right: 10%;
-    margin-left: 10%;
-}
-
 label{
     font-weight: bold;
 }
@@ -15,4 +10,27 @@ a{
     margin-left: 5px;
     font-weight: bold;
     font-style: italic;
+}
+
+.centralizar-fixed{
+    margin-top: 8%;
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 80%;
+    position: fixed;
+}
+
+.centralizar-fixed > .jumbotron{
+    padding-top: 0%;
+    padding-bottom: 0%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.centralizar{
+    margin-top: 12%;
+    margin-right: 10%;
+    margin-left: 10%;
 }

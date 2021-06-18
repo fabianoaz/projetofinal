@@ -1,7 +1,8 @@
-<div class='centralizar'>
+<div class='centralizar-fixed'>
     <h1 class="jumbotron" style="text-align: center; font-weight: bold;">Relatório de desempenho</h1>
-    <br />
-
+</div>
+<br />
+<div class='centralizar'>
     <div class="row">
         <div class="col">
             <div ngbDropdown class="d-inline">
@@ -31,7 +32,7 @@
     <hr />
 
     <button class="btn btn-outline-primary" (click)="open(content)">Imprimir</button>
-    
+
     <hr />
 
     <div class="row">
@@ -62,40 +63,41 @@
 
 <ng-template #content let-c="close" let-d="dismiss" id="reportM">
     <div class="modal-header">
-      <h2 class="modal-title" id="modal-basic-title" style="text-align: center; font-weight: bold;">Relatório de desempenho</h2>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <h2 class="modal-title" id="modal-basic-title" style="text-align: center; font-weight: bold;">Relatório de
+            desempenho</h2>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
-      <div>
-        <div class="row">
-            <div class="col-md-2">
-                <label class="col-md-2 col-form-label">Nome:</label>
+        <div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="col-md-2 col-form-label">Nome:</label>
+                </div>
+                <div class="col-md-4">{{paciente.nome}}</div>
             </div>
-            <div class="col-md-4">{{paciente.nome}}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label class="col-md-2 col-form-label">Idade:</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="col-md-2 col-form-label">Idade:</label>
+                </div>
+                <div class="col-md-4">{{paciente.idade}}</div>
             </div>
-            <div class="col-md-4">{{paciente.idade}}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label class="col-md-2 col-form-label">Condição:</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="col-md-2 col-form-label">Condição:</label>
+                </div>
+                <div class="col-md-4">{{paciente.diagnostico}}</div>
             </div>
-            <div class="col-md-4">{{paciente.diagnostico}}</div>
+            <hr />
+            <google-chart #chart [title]="title" [type]="type" [data]="data" [columns]="columnNames" [options]="options"
+                [width]="widthM" [height]="heightM">
+            </google-chart>
         </div>
-        <hr />
-        <google-chart #chart [title]="title" [type]="type" [data]="data" [columns]="columnNames" [options]="options"
-            [width]="widthM" [height]="heightM">
-        </google-chart>
-    </div>
 
     </div>
     <div class="modal-footer">
         <button class="btn btn-outline-primary" (click)="print()">Imprimir</button>
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Fechar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Fechar</button>
     </div>
-  </ng-template>
+</ng-template>
