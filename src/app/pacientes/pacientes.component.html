@@ -5,6 +5,45 @@
 <div class='centralizar'>
     <div>
         <ngb-accordion>
+            <ngb-panel id="toggle-2" title="Profissionais">
+                <ng-template ngbPanelContent>
+                    <form class='formulario'>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="floatingInput" name='nomeprofissional' type="text"
+                                #nomeprofissional>
+                            <label for="floatingInput">Nome do Profissional</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="floatingInput" name='especializacao' type="text"
+                                #especializacao>
+                            <label for="floatingInput">Especialização</label>
+                        </div>
+                    </form>
+                    <hr />
+                    <div class="d-grid gap-2 d-md-flex ">
+                        <button class="btn btn-primary"
+                            (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
+                        <button class="btn btn-primary" (click)="listarProfissionais()">Listar Profissionais</button>
+                    </div>
+                    <hr />
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Especialização</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let profissional of listaprofissionais; let i=index">
+                                    <td>{{profissional._id}}</td>
+                                    <td>{{profissional.nome}}</td>
+                                    <td>{{profissional.especializacao}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-template>
+            </ngb-panel>
             <ngb-panel id="toggle-1" title="Alunos / Pacientes">
                 <ng-template ngbPanelContent>
                     <form class='formulario'>
@@ -54,45 +93,6 @@
                                     <td>{{paciente.diagnostico}}</td>
                                     <td>{{paciente.faz}}</td>
                                     <td>{{paciente.dificuldade}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </ng-template>
-            </ngb-panel>
-            <ngb-panel id="toggle-2" title="Profissionais">
-                <ng-template ngbPanelContent>
-                    <form class='formulario'>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="floatingInput" name='nomeprofissional' type="text"
-                                #nomeprofissional>
-                            <label for="floatingInput">Nome do Profissional</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="floatingInput" name='especializacao' type="text"
-                                #especializacao>
-                            <label for="floatingInput">Especialização</label>
-                        </div>
-                    </form>
-                    <hr />
-                    <div class="d-grid gap-2 d-md-flex ">
-                        <button class="btn btn-primary"
-                            (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
-                        <button class="btn btn-primary" (click)="listarProfissionais()">Listar Profissionais</button>
-                    </div>
-                    <hr />
-                    <div>
-                        <table class="table table-striped">
-                            <thead>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Especialização</th>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let profissional of listaprofissionais; let i=index">
-                                    <td>{{profissional._id}}</td>
-                                    <td>{{profissional.nome}}</td>
-                                    <td>{{profissional.especializacao}}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { ChartType, Row } from "angular-google-charts"
 import { AtendimentoService } from '../atendimento/atendimento.service';
-import { EvolucaoClass } from '../atendimento/evolucao';
 import { PacientesClass } from '../pacientes/pacientes';
 import { PacientesService } from '../pacientes/pacientes.service';
 import { ProfissionalClass } from '../profissionais/profissionais';
@@ -17,10 +16,10 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RelatorioComponent implements OnInit {
 
-  evolucao: Row[] = [];
-  data: Row[] = [];
+  data: Row[] = []; // Dados para apresentação do gréfico
   paciente: PacientesClass = new PacientesClass;
-  pacienteNome:string = "";
+  profissionalNome:string = "";
+  profissionalEspecializacao:string = "";
   pacienteID:string = "";
   listapacientes: PacientesClass[] = [];
   profissionais: ProfissionalClass[] = [];
@@ -35,35 +34,23 @@ export class RelatorioComponent implements OnInit {
     this.profissionaisService.getProfissionais().subscribe(dados =>this.profissionais = dados);
   }
 
-  title = 'Evolução em Atendimentos ';
-
-  type = ChartType.Bar;
-
-  evolucaoPaciente(){
-    this.atendimentoService.getEvolucaoPorPaciente('60a1958797b6ae00154449ff').subscribe(dados =>this.data = dados);
-  }
-
   evolucaoPacienteID(_idPaciente:string){
     this.atendimentoService.getEvolucaoPorPaciente(_idPaciente).subscribe(dados =>this.data = dados);
     this.pacienteService.getPacienteID(_idPaciente).subscribe(dados =>this.paciente = dados);
+    this.profissionalNome = "Todos";
+    this.profissionalEspecializacao = "";
   }
 
-  evolucaoPacienteProfissional(_profissionalNome:string){
+  evolucaoPacienteProfissional(_profissionalNome:string,_especializacao:string){
     this.atendimentoService.getEvolucaoPorPacienteProfissional(_profissionalNome).subscribe(dados =>this.data = dados);
+    this.profissionalNome = _profissionalNome;
+    this.profissionalEspecializacao = _especializacao;
   }
 
-  selecionaPaciente(_idPaciente:string){
-    this.pacienteID = _idPaciente;
-  }
-
-  getValue(event: Event): string {
-    return (event.target as HTMLInputElement).value;
-  }
-
+  title = 'Evolução em Atendimentos ';
+  type = ChartType.Bar;
   columnNames = ['Período', 'Evolução'];
-
   options = {};
-
   width = 850;
   height = 450;
 

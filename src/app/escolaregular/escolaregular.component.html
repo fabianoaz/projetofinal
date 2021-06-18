@@ -81,8 +81,8 @@
 
 <ng-template #content let-c="close" let-d="dismiss" id="reportM">
     <div class="modal-header">
-        <h2 class="modal-title" id="modal-basic-title" style="text-align: center; font-weight: bold;">Consulta a
-            Atendimentos</h2>
+        <h2 class="modal-title" id="modal-basic-title" style="text-align: center; font-weight: bold;">Atendimentos de
+            {{paciente.nome}}</h2>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -90,32 +90,26 @@
     <div class="modal-body">
 
         <div class="row">
-            <div class="col-md-2">
-                <label class="col-md-2 col-form-label">Nome:</label>
+            <div class="col-md-3">
+                <label class="col-md-3 col-form-label">Condição:</label>
             </div>
-            <div class="col-md-4">{{paciente.nome}}</div>
-            <div class="col-md-6">
-                <label class="col-md-6 col-form-label">O que consigo fazer sozinho</label>
-            </div>
-        </div>
-        <div class="row">
+            <div class="col-md-4">{{paciente.diagnostico}}</div>
             <div class="col-md-2">
                 <label class="col-md-2 col-form-label">Idade:</label>
             </div>
-            <div class="col-md-4">{{paciente.idade}}</div>
+            <div class="col-md-1">{{paciente.idade}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="col-md-6 col-form-label">O que consigo fazer sozinho</label>
+            </div>
             <div class="col-md-6">{{paciente.faz}}</div>
         </div>
         <div class="row">
-            <div class="col-md-2">
-                <label class="col-md-2 col-form-label">Condição:</label>
-            </div>
-            <div class="col-md-4">{{paciente.diagnostico}}</div>
             <div class="col-md-6">
                 <label class="col-md-6 col-form-label">O que tenho dificuldade em fazer</label>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 offset-md-6">{{paciente.dificuldade}}</div>
+            <div class="col-md-6">{{paciente.dificuldade}}</div>
         </div>
 
         <hr />

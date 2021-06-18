@@ -22,7 +22,7 @@
                     profissional</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                     <button ngbDropdownItem *ngFor="let profissional of profissionais; let i=index"
-                        (click)="evolucaoPacienteProfissional(profissional.nome)">{{profissional.nome}}
+                        (click)="evolucaoPacienteProfissional(profissional.nome,profissional.especializacao)">{{profissional.nome}}
                         - {{profissional.especializacao}}</button>
                 </div>
             </div>
@@ -40,12 +40,20 @@
             <label class="col-md-2 col-form-label">Nome:</label>
         </div>
         <div class="col-md-4">{{paciente.nome}}</div>
+        <div class="col-md-2">
+            <label class="col-md-2 col-form-label">Profissional</label>
+        </div>
+        <div class="col-md-4">{{profissionalNome}}</div>
     </div>
     <div class="row">
         <div class="col-md-2">
             <label class="col-md-2 col-form-label">Idade:</label>
         </div>
         <div class="col-md-4">{{paciente.idade}}</div>
+        <div class="col-md-2">
+            <label class="col-md-2 col-form-label">Especialização</label>
+        </div>
+        <div class="col-md-4">{{profissionalEspecializacao}}</div>
     </div>
     <div class="row">
         <div class="col-md-2">
@@ -65,7 +73,7 @@
 <ng-template #content let-c="close" let-d="dismiss" id="reportM">
     <div class="modal-header">
         <h2 class="modal-title" id="modal-basic-title" style="text-align: center; font-weight: bold;">Relatório de
-            desempenho</h2>
+            desempenho de {{paciente.nome}}</h2>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -73,22 +81,26 @@
     <div class="modal-body">
         <div>
             <div class="row">
-                <div class="col-md-2">
-                    <label class="col-md-2 col-form-label">Nome:</label>
+                <div class="col-md-3">
+                    <label class="col-md-3 col-form-label">Condição:</label>
                 </div>
-                <div class="col-md-4">{{paciente.nome}}</div>
-            </div>
-            <div class="row">
+                <div class="col-md-4">{{paciente.diagnostico}}</div>
                 <div class="col-md-2">
                     <label class="col-md-2 col-form-label">Idade:</label>
                 </div>
-                <div class="col-md-4">{{paciente.idade}}</div>
+                <div class="col-md-1">{{paciente.idade}}</div>
             </div>
             <div class="row">
-                <div class="col-md-2">
-                    <label class="col-md-2 col-form-label">Condição:</label>
+                <div class="col-md-4">
+                    <label class="col-md-4 col-form-label">Profissional</label>
                 </div>
-                <div class="col-md-4">{{paciente.diagnostico}}</div>
+                <div class="col-md-8">{{profissionalNome}}</div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+                <label class="col-md-4 col-form-label">Especialização</label>
+            </div>
+            <div class="col-md-8">{{profissionalEspecializacao}}</div>
             </div>
             <hr />
             <google-chart #chart [title]="title" [type]="type" [data]="data" [columns]="columnNames" [options]="options"

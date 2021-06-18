@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment.prod'
 export class ProfissionaisService {
 
   profissionais: ProfissionalClass[] = [];
+  profissional: ProfissionalClass = new ProfissionalClass();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,6 +20,10 @@ export class ProfissionaisService {
 
   getProfissionais(){
     return this.httpClient.get<ProfissionalClass[]>(environment.apiUrl + '/profissionais/');
+  }
+
+  getProfissionalPorNome(_nome:string){
+    return this.httpClient.get<ProfissionalClass[]>(environment.apiUrl + '/profissionais/nome/'+ _nome)
   }
 
   addprofissional(profissional:ProfissionalClassCreate){
