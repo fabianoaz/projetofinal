@@ -7,31 +7,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 
+
 <header>
-  <div class="jumbotron jumbotron-fluid">
-    <div style="text-align: center; font-weight: bold; height: 5%;">
+  <div class="jumbotron">
+    <div>
       <h1>Integrar Infância</h1>
     </div>
+  </div>
 
-    <ol ngbNav #nav="ngbNav" class="nav-tabs">
-      <li [ngbNavItem]="1">
-        <a ngbNavLink routerLink="/homepage">Home</a>
-      </li>
-      <li [ngbNavItem]="2">
-        <a ngbNavLink routerLink="/escolaregular">Escola Regular</a>
-      </li>
-      <li [ngbNavItem]="3">
-        <a ngbNavLink routerLink="/relatorio">Relatorio</a>
-      </li>
-      <li [ngbNavItem]="4">
-        <a ngbNavLink routerLink="/atendimento">Atendimentos</a>
-      </li>
-      <li [ngbNavItem]="5">
-        <a ngbNavLink routerLink="/pacientes">Cadastros</a>
-      </li>
-    </ol>
+  <div class="menu">
+    <div class="d-flex align-items-start">
+      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link btn btn-primary" id="v-pills-home-tab" data-bs-toggle="pill"
+          data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"
+          routerLink="/homepage">Home</button>
+        <button class="nav-link btn btn-primary" id="v-pills-escola-tab" data-bs-toggle="pill"
+          data-bs-target="#v-pills-escola" type="button" role="tab" aria-controls="v-pills-escola" aria-selected="true"
+          routerLink="/escolaregular">Escola</button>
+        <button class="nav-link btn btn-primary" id="v-pills-relatorio-tab" data-bs-toggle="pill"
+          data-bs-target="#v-pills-relatorio" type="button" role="tab" aria-controls="v-pills-relatorio"
+          aria-selected="false" routerLink="/relatorio">Relatorio</button>
+        <button class="nav-link btn btn-primary" id="v-pills-atendimento-tab" data-bs-toggle="pill"
+          data-bs-target="#v-pills-atendimento" type="button" role="tab" aria-controls="v-pills-atendimento"
+          aria-selected="false" routerLink="/atendimento">Atendimentos</button>
+        <button class="nav-link btn btn-primary" id="v-pills-cadastro-tab" data-bs-toggle="pill"
+          data-bs-target="#v-pills-cadastro" type="button" role="tab" aria-controls="v-pills-cadastro"
+          aria-selected="false" routerLink="/pacientes">Cadastros</button>
+      </div>
+    </div>
   </div>
 </header>
+
 <footer class="footer">
 </footer>
 

@@ -5,12 +5,13 @@ import { ProfissionalClassCreate } from '../profissionais/profissionalcreate';
 import { PacientesClass} from './pacientes';
 import { PacientesService } from './pacientes.service';
 import { PacientesClassCreate } from './pacientescreate';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
-  styleUrls: ['./pacientes.component.css']
+  styleUrls: ['./pacientes.component.css'],
+  providers:[NgbAccordionConfig]
 })
 export class PacientesComponent implements OnInit {
 
@@ -18,8 +19,11 @@ export class PacientesComponent implements OnInit {
   listapacientes: PacientesClass[] = [];
   profissional: ProfissionalClassCreate = new ProfissionalClassCreate;
   listaprofissionais: ProfissionalClass[] = [];
+  disabled = false;
 
-  constructor(private pacientesService: PacientesService, private profissionaisService: ProfissionaisService) { }
+  constructor(private pacientesService: PacientesService, private profissionaisService: ProfissionaisService, config: NgbAccordionConfig) {
+    config.closeOthers = true;
+  }
 
   ngOnInit(): void {
     this.listarPacientes()

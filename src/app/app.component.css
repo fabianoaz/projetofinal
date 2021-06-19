@@ -4,6 +4,26 @@ header{
     top: 0;
 }
 
+.menu{
+    height: max-content;
+}
+
+.jumbotron{
+    height: 50px;
+    font-weight: bold;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.jumbotron > h1{
+    text-align: left;
+    font-weight: bold;
+}
+
 .footer {
     position: fixed;
     clear: both;

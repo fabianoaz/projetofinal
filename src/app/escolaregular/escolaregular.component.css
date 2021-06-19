@@ -12,14 +12,16 @@ label{
 }
 
 .centralizar-fixed{
-    margin-top: 8%;
-    margin-right: 10%;
-    margin-left: 10%;
-    width: 80%;
+    margin-top: 1%;
+    margin-right: 0%;
+    margin-left: 0%;
+    width: 100%;
     position: fixed;
 }
 
 .centralizar-fixed > .jumbotron{
+    text-align: center; 
+    font-weight: bold;
     padding-top: 0%;
     padding-bottom: 0%;
     -webkit-background-size: cover;
@@ -29,7 +31,7 @@ label{
 }
 
 .centralizar{
-    margin-top: 12%;
+    margin-top: 5%;
     margin-right: 10%;
     margin-left: 10%;
 }

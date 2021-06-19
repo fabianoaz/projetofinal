@@ -23,18 +23,20 @@ export class AtendimentoComponent implements OnInit {
   selectedPaciente:PacientesClass = new PacientesClass;
 
   pacienteId:string="";
-  pacienteNome:string="";
+  pacienteNome:string="Selecionar paciente";
   pacienteIdade:string="";
+  pacienteDiagnostico:string="";
   pacienteEvolucao:number = 0;
   pacienteEvolucaoDsc:string="";
   //evolucao:number[] = [0,1,2,3];
+  btnEvolucao:string="Selecionar evolução"
   evolucao = [{"descricao":"Ruim","valor":1},{"descricao":"Regular","valor":2},{"descricao":"Médio","valor":3},{"descricao":"Ótimo","valor":4}];
 
   profissionais: ProfissionalClass[] = [];
   profissional:ProfissionalClass = new ProfissionalClass;
 
   profissionalId:string="";
-  profissionalNome:string="";
+  profissionalNome:string="Selecionar profissional";
   profissionalEspecialidade:string="";
 
   constructor(private atendimentoService: AtendimentoService, private pacientesService: PacientesService, private profissionaisService: ProfissionaisService) { }
@@ -60,16 +62,18 @@ export class AtendimentoComponent implements OnInit {
     this.selectedPaciente = new PacientesClass;
   }
 
-  selecionaPaciente(_id:string,_nome:string,_idade:string){
+  selecionaPaciente(_id:string,_nome:string,_idade:string,_diagnostico:string){
     this.pacienteId = _id;
     this.pacienteNome = _nome;
     this.pacienteIdade = _idade;
+    this.pacienteDiagnostico = _diagnostico;
     this.atendimentoService.getAtendimentoPorPaciente(this.pacienteId).subscribe(dados =>this.informacoes = dados);
   }
 
   selecionaEvolucao(_evolucao:number){
     this.pacienteEvolucao = _evolucao;
     this.pacienteEvolucaoDsc = this.evolucao[_evolucao - 1].descricao
+    this.btnEvolucao = this.pacienteEvolucaoDsc
   }
 
   selecionaProfissional(_id:string,_nome:string,_especializacao:string){

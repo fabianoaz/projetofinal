@@ -1,11 +1,17 @@
 <div class='centralizar-fixed'>
-    <h1 class="jumbotron" style="text-align: center; font-weight: bold;">Cadastros</h1>
+    <h1 class="jumbotron">Cadastros</h1>
 </div>
 <br />
 <div class='centralizar'>
     <div>
         <ngb-accordion>
-            <ngb-panel id="toggle-2" title="Profissionais">
+            <ngb-panel id="toggle-2">
+                <ng-template ngbPanelHeader>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <button ngbPanelToggle
+                            class="btn btn-outline-primary container-fluid text-center pl-0">Profissionais</button>
+                    </div>
+                </ng-template>
                 <ng-template ngbPanelContent>
                     <form class='formulario'>
                         <div class="form-floating mb-3">
@@ -44,7 +50,13 @@
                     </div>
                 </ng-template>
             </ngb-panel>
-            <ngb-panel id="toggle-1" title="Alunos / Pacientes">
+            <ngb-panel id="toggle-1">
+                <ng-template ngbPanelHeader>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0">Alunos /
+                            Pacientes</button>
+                    </div>
+                </ng-template>
                 <ng-template ngbPanelContent>
                     <form class='formulario'>
                         <div class="form-floating mb-3">
