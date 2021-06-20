@@ -18,7 +18,7 @@ export class RelatorioComponent implements OnInit {
 
   data: Row[] = []; // Dados para apresentação do gréfico
   paciente: PacientesClass = new PacientesClass;
-  profissionalNome:string = "";
+  profissionalNome:string = "Selecionar profissional";
   profissionalEspecializacao:string = "";
   pacienteID:string = "";
   listapacientes: PacientesClass[] = [];

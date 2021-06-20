@@ -9,27 +9,27 @@
                 <ng-template ngbPanelHeader>
                     <div class="d-flex align-items-center justify-content-between">
                         <button ngbPanelToggle
-                            class="btn btn-outline-primary container-fluid text-center pl-0">Profissionais</button>
+                            class="btn btn-outline-primary container-fluid text-center pl-0" style="text-align: left;">Profissionais</button>
                     </div>
                 </ng-template>
                 <ng-template ngbPanelContent>
-                    <form class='formulario'>
+                    <form class="needs-validation">
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="floatingInput" name='nomeprofissional' type="text"
+                            <input class="form-control" id="floatingInput" name='nomeprofissional' type="text" required
                                 #nomeprofissional>
                             <label for="floatingInput">Nome do Profissional</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="floatingInput" name='especializacao' type="text"
+                            <input class="form-control" id="floatingInput" name='especializacao' type="text" required
                                 #especializacao>
                             <label for="floatingInput">Especialização</label>
                         </div>
                     </form>
                     <hr />
                     <div class="d-grid gap-2 d-md-flex ">
-                        <button class="btn btn-primary"
+                        <button class="btn btn-primary" style="width: 15%; text-align: center;"
                             (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
-                        <button class="btn btn-primary" (click)="listarProfissionais()">Listar Profissionais</button>
+                        <!--<button class="btn btn-primary" style="width: auto; text-align: left;" (click)="listarProfissionais()">Listar Profissionais</button>-->
                     </div>
                     <hr />
                     <div>
@@ -53,22 +53,22 @@
             <ngb-panel id="toggle-1">
                 <ng-template ngbPanelHeader>
                     <div class="d-flex align-items-center justify-content-between">
-                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0">Alunos /
+                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0" style="text-align: left;">Alunos /
                             Pacientes</button>
                     </div>
                 </ng-template>
                 <ng-template ngbPanelContent>
                     <form class='formulario'>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" #nome>
+                            <input type="text" class="form-control" id="floatingInput" required #nome>
                             <label for="floatingInput">Nome da Criança</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class='form-control' id="floatingInput" name='idade' type="number" #idade>
+                            <input class='form-control' id="floatingInput" name='idade' type="number" required #idade>
                             <label for="floatingInput">Idade</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class='form-control' id="floatingInput" name='condicao' type="text" #condicao>
+                            <input class='form-control' id="floatingInput" name='condicao' type="text" required #condicao>
                             <label for="floatingInput">Condição</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -82,9 +82,9 @@
                     </form>
                     <hr />
                     <div class="d-grid gap-2 d-md-flex ">
-                        <button class="btn btn-primary"
+                        <button class="btn btn-primary" style="width: 15%; text-align: center;"
                             (click)="addPaciente(nome.value,idade.value,condicao.value,faz.value,dificuldade.value); nome.value='';idade.value='0';condicao.value='';faz.value='';dificuldade.value=''">Incluir</button>
-                        <button class="btn btn-primary" (click)="listarPacientes()">Listar Pacientes</button>
+                        <!--<button class="btn btn-primary" (click)="listarPacientes()">Listar Pacientes</button>-->
                     </div>
                     <hr />
                     <div>

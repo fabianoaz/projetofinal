@@ -34,6 +34,9 @@ export class PacientesComponent implements OnInit {
   }
 
   addPaciente(_nome: string, _idade: string, _condicao: string, _faz:string, _dificuldade:string) {
+    if(_nome == "" || _idade == "" || _condicao == ""){
+      alert("Campos obrigatórios devem ser preenchidos!")
+    }
     this.paciente.nome = _nome;
     this.paciente.idade = _idade;
     this.paciente.diagnostico = _condicao;
@@ -49,6 +52,9 @@ export class PacientesComponent implements OnInit {
   }
 
   addProfissional(_nome: string, _especializacao: string) {
+    if(_nome == "" || _especializacao == ""){
+      alert("Campos obrigatórios devem ser preenchidos!")
+    }
     this.profissional.nome = _nome;
     this.profissional.especializacao = _especializacao;
     this.profissionaisService.addprofissional(this.profissional);

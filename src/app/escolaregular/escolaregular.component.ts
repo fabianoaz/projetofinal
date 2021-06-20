@@ -21,7 +21,7 @@ export class EscolaregularComponent implements OnInit {
   atendimentos: AtendimentoClass[] = [];
   listapacientes: PacientesClass[] = [];
   atendimentosPaciente: AtendimentoClass[] = [];
-  pacienteNome:string="";
+  pacienteNome:string="Selecionar aluno";
   paciente: PacientesClass = new PacientesClass;
 
   constructor(private service: EscolaregularService, private atendimentoService: AtendimentoService, private pacienteService: PacientesService, config: NgbModalConfig, private modalService: NgbModal) {
@@ -31,6 +31,7 @@ export class EscolaregularComponent implements OnInit {
 
   ngOnInit(): void {
     this.info = new EscolaregularClass();
+    this.paciente = new PacientesClass;
     this.informacoes = this.service.getInfos();
     this.atendimentoService.getAtendimentos().subscribe(dados =>this.atendimentos = dados);
     this.pacienteService.getPacientes().subscribe(dados => this.listapacientes = dados);
@@ -46,6 +47,7 @@ export class EscolaregularComponent implements OnInit {
 
   listarAtendimentosPaciente(_idPaciente:string) {
     this.pacienteService.getPacienteID(_idPaciente).subscribe(dados =>this.paciente = dados);
+    this.pacienteNome = this.paciente.nome
     this.atendimentoService.getAtendimentoPorPaciente(_idPaciente).subscribe(dados => this.atendimentosPaciente = dados)
   }
 

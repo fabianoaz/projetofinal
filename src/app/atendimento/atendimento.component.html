@@ -5,17 +5,17 @@
 <div class='centralizar'>
 
     <div ngbDropdown class="d-inline">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{profissionalNome}} {{profissional.especializacao}}</button>
+        <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{profissionalNome}} {{profissionalEspecialidade}}</button>
         <div ngbDropdownMenu aria-h2ledby="dropdownBasic1">
             <button ngbDropdownItem *ngFor="let profissional of profissionais; let i=index"
-                (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}} {{profissional.especializacao}}</button>
+                (click)="selecionaProfissional(profissional._id,profissional.nome,profissional.especializacao)">{{profissional.nome}} - {{profissional.especializacao}}</button>
         </div>
     </div>
 
     <hr />
 
-    <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{pacienteNome}}  - {{paciente.diagnostico}}</button>
+    <div ngbDropdown class="d-inline">
+        <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{pacienteNome}} {{pacienteDiagnostico}}</button>
         <div ngbDropdownMenu aria-h2ledby="dropdownBasic1">
             <button ngbDropdownItem *ngFor="let paciente of pacientes; let i=index"
                 (click)="selecionaPaciente(paciente._id,paciente.nome,paciente.idade,paciente.diagnostico)">{{paciente.nome}} - {{paciente.diagnostico}}</button>
@@ -28,7 +28,7 @@
 <div class="row">
     <div class="col-md-1"><h2 for="">Profissional: </h2></div>
     <div class="col-md-4"><a>{{profissionalNome}}</a></div>
-    <div class="col-md-1"><h2 for="">Especialização: </h2></div>
+    <div class="col-md-2"><h2 for="">Especialização: </h2></div>
     <div class="col-md-4"><a>{{profissionalEspecialidade}}</a></div>
 </div>
 <div class="row">
@@ -39,32 +39,14 @@
     <div class="col-md-1"><h2 for="">Condição: </h2></div>
     <div class="col-md-2"><a>{{pacienteDiagnostico}}</a></div>
 </div>
-<!--
-            <div style="float: left;">
-                <h2 for="">Profissional: </h2>
-                <a>{{profissionalNome}}</a>
-            </div>
-            <div style="margin-left: 50%;">
-                <h2 for="">Especialização: </h2>
-                <a>{{profissionalEspecialidade}}</a>
-            </div>
-            <div style="float: left;">
-                <h2 for="">Nome: </h2>
-                <a>{{pacienteNome}}</a>
-            </div>
-            <div style="margin-left: 50%;">
-                <h2 for="">Idade: </h2>
-                <a>{{pacienteIdade}}</a>
-            </div>
-             -->
 
             <div>
                 <label for="">Atendimento</label>
-                <input class='form-control' name='atendimento' type="text" #atendimento>
+                <textarea class='form-control' name='atendimento' type="textarea" #atendimento></textarea>
             </div>
             <div>
                 <label for="">Orientação</label>
-                <input class='form-control' name='orientacao' type="text" #orientacao>
+                <textarea class='form-control' name='orientacao' type="textarea" #orientacao></textarea>
             </div>
            
         </form>
@@ -73,18 +55,17 @@
             <h2>Evolução</h2>
         </div>
 
-        <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{btnEvolucao}}</button>
+        <div ngbDropdown class="d-inline">
+            <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{btnEvolucao}}</button>
             <div ngbDropdownMenu aria-h2ledby="dropdownBasic1">
                 <option ngbDropdownItem *ngFor="let ev of evolucao; let i=index" value=ev.valor
                     (click)="selecionaEvolucao(ev.valor)">{{ev.descricao}}</option>
             </div>
         </div>
-        <!--<h2>{{pacienteEvolucaoDsc}}</h2>-->
 
         <hr />
         <div clas='botoes'>
-            <button class="btn btn-primary"
+            <button class="btn btn-primary" style="width: auto; min-width: 15%;"
                 (click)="addInfo(atendimento.value,orientacao.value); atendimento.value=''; orientacao.value='' ">Incluir informação</button>
         </div>
         <hr />

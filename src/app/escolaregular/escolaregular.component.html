@@ -4,7 +4,7 @@
 <br />
 <div class='centralizar'>
     <div ngbDropdown class="d-inline">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar aluno</button>
+        <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{paciente.nome}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button ngbDropdownItem *ngFor="let paciente of listapacientes; let i=index"
                 (click)="listarAtendimentosPaciente(paciente._id)">{{paciente.nome}}</button>
@@ -14,8 +14,8 @@
     <hr />
 
     <div class="row">
-        <div class="col-md-4">
-            <button class="btn btn-outline-primary" (click)="open(content)">Imprimir</button>
+        <div class="col-md-12">
+            <button class="btn btn-primary" style="width: auto; min-width: 15%" (click)="open(content)">Imprimir</button>
         </div>
     </div>
 

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <div ngbDropdown class="d-inline">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar aluno</button>
+                <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{paciente.nome}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                     <button ngbDropdownItem *ngFor="let paciente of listapacientes; let i=index"
                         (click)="evolucaoPacienteID(paciente._id)">{{paciente.nome}}</button>
@@ -18,8 +18,7 @@
     <div class="row">
         <div class="col">
             <div ngbDropdown class="d-inline">
-                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecionar
-                    profissional</button>
+                <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{profissionalNome}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                     <button ngbDropdownItem *ngFor="let profissional of profissionais; let i=index"
                         (click)="evolucaoPacienteProfissional(profissional.nome,profissional.especializacao)">{{profissional.nome}}
@@ -31,7 +30,7 @@
 
     <hr />
 
-    <button class="btn btn-outline-primary" (click)="open(content)">Imprimir</button>
+    <button class="btn btn-primary" style="width: auto; min-width: 15%;" (click)="open(content)">Imprimir</button>
 
     <hr />
 
