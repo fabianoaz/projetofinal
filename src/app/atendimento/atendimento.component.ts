@@ -12,7 +12,7 @@ import { EvolucaoClass } from './evolucao';
 @Component({
   selector: 'app-Atendimento',
   templateUrl: './atendimento.component.html',
-  styleUrls: ['./atendimento.component.css']
+  styleUrls: ['./atendimento.component.css','../styles/generic.style.css']
 })
 export class AtendimentoComponent implements OnInit {
 

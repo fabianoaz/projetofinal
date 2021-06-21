@@ -12,7 +12,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-relatorio',
   templateUrl: './relatorio.component.html',
   providers: [NgbModalConfig, NgbModal],
-  styleUrls: ['./relatorio.component.css']
+  styleUrls: ['./relatorio.component.css','../styles/generic.style.css']
 })
 export class RelatorioComponent implements OnInit {
 

@@ -6,7 +6,8 @@
     <div class="row">
         <div class="col">
             <div ngbDropdown class="d-inline">
-                <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{paciente.nome}}</button>
+                <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;"
+                    id="dropdownBasic1" ngbDropdownToggle>{{paciente.nome}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                     <button ngbDropdownItem *ngFor="let paciente of listapacientes; let i=index"
                         (click)="evolucaoPacienteID(paciente._id)">{{paciente.nome}}</button>
@@ -18,7 +19,8 @@
     <div class="row">
         <div class="col">
             <div ngbDropdown class="d-inline">
-                <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;" id="dropdownBasic1" ngbDropdownToggle>{{profissionalNome}}</button>
+                <button class="btn btn-outline-primary" style="width: auto; min-width: 15%; text-align: left;"
+                    id="dropdownBasic1" ngbDropdownToggle>{{profissionalNome}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                     <button ngbDropdownItem *ngFor="let profissional of profissionais; let i=index"
                         (click)="evolucaoPacienteProfissional(profissional.nome,profissional.especializacao)">{{profissional.nome}}
@@ -30,7 +32,12 @@
 
     <hr />
 
-    <button class="btn btn-primary" style="width: auto; min-width: 15%;" (click)="open(content)">Imprimir</button>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary" style="width: auto; min-width: 15%;"
+                (click)="open(content)">Imprimir</button>
+        </div>
+    </div>
 
     <hr />
 
@@ -96,10 +103,10 @@
                 <div class="col-md-8">{{profissionalNome}}</div>
             </div>
             <div class="row">
-            <div class="col-md-4">
-                <label class="col-md-4 col-form-label">Especialização</label>
-            </div>
-            <div class="col-md-8">{{profissionalEspecializacao}}</div>
+                <div class="col-md-4">
+                    <label class="col-md-4 col-form-label">Especialização</label>
+                </div>
+                <div class="col-md-8">{{profissionalEspecializacao}}</div>
             </div>
             <hr />
             <google-chart #chart [title]="title" [type]="type" [data]="data" [columns]="columnNames" [options]="options"

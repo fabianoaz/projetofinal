@@ -10,7 +10,7 @@ import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
-  styleUrls: ['./pacientes.component.css'],
+  styleUrls: ['./pacientes.component.css','../styles/generic.style.css'],
   providers:[NgbAccordionConfig]
 })
 export class PacientesComponent implements OnInit {

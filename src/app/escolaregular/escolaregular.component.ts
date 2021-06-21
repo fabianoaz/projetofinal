@@ -11,7 +11,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-escolaregular',
   templateUrl: './escolaregular.component.html',
   providers: [NgbModalConfig, NgbModal],
-  styleUrls: ['./escolaregular.component.css']
+  styleUrls: ['./escolaregular.component.css','../styles/generic.style.css']
 })
 export class EscolaregularComponent implements OnInit {
 
