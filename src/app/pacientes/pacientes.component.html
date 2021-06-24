@@ -8,52 +8,55 @@
             <ngb-panel id="toggle-2">
                 <ng-template ngbPanelHeader>
                     <div class="d-flex align-items-center justify-content-between">
-                        <button ngbPanelToggle
-                            class="btn btn-outline-primary container-fluid text-center pl-0" style="text-align: left;">Profissionais</button>
+                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0"
+                            style="text-align: left;">Profissionais</button>
                     </div>
                 </ng-template>
                 <ng-template ngbPanelContent>
-                    <form class="needs-validation">
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="floatingInput" name='nomeprofissional' type="text" required
-                                #nomeprofissional>
-                            <label for="floatingInput">Nome do Profissional</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="floatingInput" name='especializacao' type="text" required
-                                #especializacao>
-                            <label for="floatingInput">Especialização</label>
-                        </div>
-                    </form>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" name='nomeprofissional' type="text" required
+                            #nomeprofissional>
+                        <label for="floatingInput">Nome do Profissional</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" name='especializacao' type="text" required
+                            #especializacao>
+                        <label for="floatingInput">Especialização</label>
+                    </div>
+
                     <hr />
                     <div class="d-grid gap-2 d-md-flex ">
                         <button class="btn btn-primary" style="width: 15%; text-align: center;"
                             (click)="addProfissional(nomeprofissional.value,especializacao.value); nomeprofissional.value='';especializacao.value=''">Incluir</button>
-                        <!--<button class="btn btn-primary" style="width: auto; text-align: left;" (click)="listarProfissionais()">Listar Profissionais</button>-->
                     </div>
                     <hr />
-                    <div>
-                        <table class="table table-striped">
-                            <thead>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Especialização</th>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let profissional of listaprofissionais; let i=index">
-                                    <td>{{profissional._id}}</td>
-                                    <td>{{profissional.nome}}</td>
-                                    <td>{{profissional.especializacao}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <form action="">
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Especialização</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let profissional of listaprofissionais; let i=index">
+                                        <td>{{profissional._id}}</td>
+                                        <td>{{profissional.nome}}</td>
+                                        <td>{{profissional.especializacao}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+
                 </ng-template>
             </ngb-panel>
             <ngb-panel id="toggle-1">
                 <ng-template ngbPanelHeader>
                     <div class="d-flex align-items-center justify-content-between">
-                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0" style="text-align: left;">Alunos /
+                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0"
+                            style="text-align: left;">Alunos /
                             Pacientes</button>
                     </div>
                 </ng-template>
@@ -68,7 +71,8 @@
                             <label for="floatingInput">Idade</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class='form-control' id="floatingInput" name='condicao' type="text" required #condicao>
+                            <input class='form-control' id="floatingInput" name='condicao' type="text" required
+                                #condicao>
                             <label for="floatingInput">Condição</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -79,36 +83,81 @@
                             <input class='form-control' id="floatingInput" name='dificuldade' type="text" #dificuldade>
                             <label for="floatingInput">O que tem dificuldade de fazer</label>
                         </div>
+
+                        <hr />
+                        <div class="d-grid gap-2 d-md-flex ">
+                            <button class="btn btn-primary" style="width: 15%; text-align: center;"
+                                (click)="addPaciente(nome.value,idade.value,condicao.value,faz.value,dificuldade.value); nome.value='';idade.value='0';condicao.value='';faz.value='';dificuldade.value=''">Incluir</button>
+                            <!--<button class="btn btn-primary" (click)="listarPacientes()">Listar Pacientes</button>-->
+                        </div>
+                        <hr />
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Condição</th>
+                                    <th>O que o estudante faz</th>
+                                    <th>O que tem dificuldade de fazer</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let paciente of listapacientes; let i=index">
+                                        <td>{{paciente._id}}</td>
+                                        <td>{{paciente.nome}}</td>
+                                        <td>{{paciente.idade}}</td>
+                                        <td>{{paciente.diagnostico}}</td>
+                                        <td>{{paciente.faz}}</td>
+                                        <td>{{paciente.dificuldade}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </form>
-                    <hr />
-                    <div class="d-grid gap-2 d-md-flex ">
-                        <button class="btn btn-primary" style="width: 15%; text-align: center;"
-                            (click)="addPaciente(nome.value,idade.value,condicao.value,faz.value,dificuldade.value); nome.value='';idade.value='0';condicao.value='';faz.value='';dificuldade.value=''">Incluir</button>
-                        <!--<button class="btn btn-primary" (click)="listarPacientes()">Listar Pacientes</button>-->
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="toggle-3">
+                <ng-template ngbPanelHeader>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <button ngbPanelToggle class="btn btn-outline-primary container-fluid text-center pl-0"
+                            style="text-align: left;" (click)="esvaziaListaProfissional()">Associar</button>
+                    </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div ngbDropdown class="d-inline" style="margin-right: 90%;">
+                        <button class="btn btn-outline-primary"
+                            style="width: max; min-width: 15%; text-align: left; margin-right: 90%;" id="dropdownBasic1"
+                            ngbDropdownToggle (click)="listarProfissionais()">{{pacienteNome}}</button>
+                        <div ngbDropdownMenu aria-h2ledby="dropdownBasic1" style="margin-right: 90%;">
+                            <button ngbDropdownItem *ngFor="let paciente of listapacientes; let i=index"
+                                (click)="selecionarPaciente(paciente._id,paciente.nome)">{{paciente.nome}}</button>
+                        </div>
                     </div>
                     <hr />
-                    <div>
-                        <table class="table table-striped">
-                            <thead>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Idade</th>
-                                <th>Condição</th>
-                                <th>O que o estudante faz</th>
-                                <th>O que tem dificuldade de fazer</th>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let paciente of listapacientes; let i=index">
-                                    <td>{{paciente._id}}</td>
-                                    <td>{{paciente.nome}}</td>
-                                    <td>{{paciente.idade}}</td>
-                                    <td>{{paciente.diagnostico}}</td>
-                                    <td>{{paciente.faz}}</td>
-                                    <td>{{paciente.dificuldade}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <form class='formulario'>
+                        <div action="">
+                            <div style="width: 50%; margin-right: 50%; text-align: left;">
+                                <div *ngFor="let profissional of listaprofissionais; let i=index" formArrayName="listaprofissionais">
+                                    
+                                        <input #checkpro id="checkprofissional" type="checkbox" value={{profissional._id}}
+                                        (change)="selecionarProfissional2(checkpro.checked,profissional._id)"><label
+                                        style="margin-left: 5%;">{{profissional.nome}}</label>
+                                    
+                                    <!--
+                                    <input #checkpro id="checkprofissional" type="checkbox" value={{profissional._id}}
+                                        (change)="selecionarProfissional(profissional._id)"><label
+                                        style="margin-left: 5%;">{{profissional.nome}}</label>
+                                        -->
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="d-grid gap-2 d-md-flex ">
+                                <button class="btn btn-primary" style="width: 15%; text-align: center;"
+                                    (click)="associar()">Associar</button>
+                            </div>
+                            <hr />
+                        </div>
+                    </form>
                 </ng-template>
             </ngb-panel>
         </ngb-accordion>

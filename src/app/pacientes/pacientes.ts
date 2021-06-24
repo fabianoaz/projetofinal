@@ -5,4 +5,5 @@ export class PacientesClass{
     diagnostico:string = "";
     faz:string="";
     dificuldade="";
+    profissionalID:string[]=[];
 }

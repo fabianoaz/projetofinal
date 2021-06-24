@@ -84,7 +84,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" #teste>
         <div>
             <div class="row">
                 <div class="col-md-3">
@@ -116,7 +116,7 @@
 
     </div>
     <div class="modal-footer">
-        <button class="btn btn-outline-primary" (click)="print()">Imprimir</button>
+        <button class="btn btn-outline-primary" (click)="print(teste)">Imprimir</button>
         <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Fechar</button>
     </div>
 </ng-template>

@@ -27,10 +27,10 @@ export class ProfissionaisService {
   }
 
   addprofissional(profissional:ProfissionalClassCreate){
-    this.httpClient.post(environment.apiUrl + '/profissionais/',profissional)
+    return this.httpClient.post(environment.apiUrl + '/profissionais/',profissional)
     .subscribe(
       res => {
-       alert('Paciente Salvo com Sucesso!');
+       alert('Cadastro salvo com sucesso!');
       },
       err => {
        console.error(err);

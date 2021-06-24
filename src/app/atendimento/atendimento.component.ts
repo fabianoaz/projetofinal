@@ -28,7 +28,6 @@ export class AtendimentoComponent implements OnInit {
   pacienteDiagnostico:string="";
   pacienteEvolucao:number = 0;
   pacienteEvolucaoDsc:string="";
-  //evolucao:number[] = [0,1,2,3];
   btnEvolucao:string="Selecionar evolução"
   evolucao = [{"descricao":"Ruim","valor":1},{"descricao":"Regular","valor":2},{"descricao":"Médio","valor":3},{"descricao":"Ótimo","valor":4}];
 
@@ -60,6 +59,7 @@ export class AtendimentoComponent implements OnInit {
     this.atendimentoService.addatendimento(this.info);
     this.info = new AtendimentoClass();
     this.selectedPaciente = new PacientesClass;
+    this.atendimentoService.getAtendimentos().subscribe(dados =>this.informacoes = dados);
   }
 
   selecionaPaciente(_id:string,_nome:string,_idade:string,_diagnostico:string){

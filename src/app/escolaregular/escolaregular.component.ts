@@ -6,6 +6,7 @@ import { PacientesService } from '../pacientes/pacientes.service';
 import { EscolaregularClass } from './escolaregular';
 import { EscolaregularService } from './escolaregular.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PacientesClassCreate } from '../pacientes/pacientescreate';
 
 @Component({
   selector: 'app-escolaregular',
@@ -22,7 +23,7 @@ export class EscolaregularComponent implements OnInit {
   listapacientes: PacientesClass[] = [];
   atendimentosPaciente: AtendimentoClass[] = [];
   pacienteNome:string="Selecionar aluno";
-  paciente: PacientesClass = new PacientesClass;
+  paciente: PacientesClassCreate = new PacientesClassCreate;
 
   constructor(private service: EscolaregularService, private atendimentoService: AtendimentoService, private pacienteService: PacientesService, config: NgbModalConfig, private modalService: NgbModal) {
     config.backdrop = 'static';

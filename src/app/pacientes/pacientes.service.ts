@@ -24,18 +24,32 @@ export class PacientesService {
   }
 
   getPacienteID(_idPaciente:string){
-    return this.httpClient.get<PacientesClass>(environment.apiUrl + '/pacientes/' + _idPaciente);
+    console.log("getPacienteID: " + _idPaciente)
+    return this.httpClient.get<PacientesClass>(environment.apiUrl + '/pacientes/semid/' + _idPaciente);
   }
 
   getPacientesProfissional(profissionalID:string){
     return this.httpClient.get<PacientesClass[]>(environment.apiUrl + '/pacientes/profissional/' + profissionalID);
   }
 
-  addpaciente(paciente:PacientesClassCreate){
-    this.httpClient.post(environment.apiUrl + '/pacientes/',paciente)
+  putAssociaPacienteProfissional(_pacienteId:string,_pacienteUpdate:PacientesClassCreate){
+    console.log("Paciente A Ser Atualizado: " + _pacienteUpdate)
+    this.httpClient.put(environment.apiUrl + "/pacientes/" + _pacienteId,_pacienteUpdate)
     .subscribe(
       res => {
-       alert('Paciente Salvo com Sucesso!');
+       alert('Paciente Atualizado com Sucesso! ' /*+ _pacienteUpdate.profissionalID*/);
+      },
+      err => {
+       console.error(err);
+      }
+      );
+  }
+
+  addpaciente(paciente:PacientesClassCreate){
+    return this.httpClient.post(environment.apiUrl + '/pacientes/',paciente)
+    .subscribe(
+      res => {
+       alert('Cadastro salvo com sucesso!');
       },
       err => {
        console.error(err);

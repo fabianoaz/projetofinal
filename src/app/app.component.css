@@ -4,9 +4,11 @@ header{
     top: 0;
 }
 
+/*
 .menu{
-    height: max-content;
+    height: 100vh;
 }
+*/
 
 .jumbotron{
     height: 50px;
