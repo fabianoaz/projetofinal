@@ -124,6 +124,7 @@
                     </div>
                 </ng-template>
                 <ng-template ngbPanelContent>
+                    <h2>Alunos / Pacientes</h2>
                     <div ngbDropdown class="d-inline" style="margin-right: 90%;">
                         <button class="btn btn-outline-primary"
                             style="width: max; min-width: 15%; text-align: left; margin-right: 90%;" id="dropdownBasic1"
@@ -134,20 +135,15 @@
                         </div>
                     </div>
                     <hr />
+                    <h2>Profissionais</h2>
                     <form class='formulario'>
                         <div action="">
                             <div style="width: 50%; margin-right: 50%; text-align: left;">
+                                <h3>Selecione profissionais</h3>
                                 <div *ngFor="let profissional of listaprofissionais; let i=index" formArrayName="listaprofissionais">
-                                    
                                         <input #checkpro id="checkprofissional" type="checkbox" value={{profissional._id}}
                                         (change)="selecionarProfissional2(checkpro.checked,profissional._id)"><label
                                         style="margin-left: 5%;">{{profissional.nome}}</label>
-                                    
-                                    <!--
-                                    <input #checkpro id="checkprofissional" type="checkbox" value={{profissional._id}}
-                                        (change)="selecionarProfissional(profissional._id)"><label
-                                        style="margin-left: 5%;">{{profissional.nome}}</label>
-                                        -->
                                 </div>
                             </div>
                             <hr />
