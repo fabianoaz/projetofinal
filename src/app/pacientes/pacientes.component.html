@@ -141,7 +141,7 @@
                             <div style="width: 50%; margin-right: 50%; text-align: left;">
                                 <h2>Selecione profissionais</h2>
                                 <div *ngFor="let profissional of listaprofissionais; let i=index" formArrayName="listaprofissionais">
-                                        <input #checkpro id="checkprofissional" type="checkbox" value={{profissional._id}}
+                                        <input #checkpro type="checkbox" value={{profissional._id}}
                                         (change)="selecionarProfissional2(checkpro.checked,profissional._id)"><label
                                         style="margin-left: 5%;">{{profissional.nome}}</label>
                                 </div>
