@@ -9,7 +9,8 @@ import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pacientes',
-  templateUrl: './pacientes.component.html',
+  //templateUrl: ['./pacientes.component.html','./index.html'],
+  templateUrl: './index.html',
   styleUrls: ['./pacientes.component.css', '../styles/generic.style.css'],
   providers: [NgbAccordionConfig]
 })
